@@ -1,7 +1,6 @@
 .vscode/
 .idea/
 .ideabuild/
-build/
 node_modules/
 typings/
 tmp/
