@@ -1,0 +1,10 @@
+.vscode/
+.idea/
+.ideabuild/
+build/
+node_modules/
+typings/
+tmp/
+dist/
+logs
+*.log

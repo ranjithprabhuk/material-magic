@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render without crashing 1`] = `
+<div>
+  <h1>
+    Welcome to React+Redux+Typescript starter
+  </h1>
+</div>
+`;

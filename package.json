@@ -1,0 +1,89 @@
+{
+  "name": "material-magic",
+  "version": "0.1.0",
+  "description": "Admin Dashboard Project using following stack: Typescript + Webpack + React + Redux + React-Router v4 + Material UI",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build:webpack": "NODE_ENV=production webpack --config config/webpack.prod.config.js  --progress --profile --colors",
+    "build": "npm run clean && npm run build:webpack",
+    "clean": "rimraf build",
+    "start": "npm run clean && webpack-dev-server --config config/webpack.dev.config.js --progress --profile --colors",
+    "test": "npm run clean && jest",
+    "test:watch": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranjithprabhuk/material-magic"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "setupFiles": [
+      "./config/test.shim.js",
+      "./config/test.setup.js"
+    ],
+    "setupTestFrameworkScriptFile": "./config/test.setup.ts",
+    "testRegex": "/*.spec.(ts|tsx|js)$"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.1.6",
+    "@types/jest": "^22.0.1",
+    "@types/lodash": "^4.14.64",
+    "@types/material-ui": "^0.21.1",
+    "@types/node": "^9.6.15",
+    "@types/prop-types": "^15.5.2",
+    "@types/react": "^16.0.34",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-redux": "^5.0.14",
+    "@types/react-router-dom": "^4.0.4",
+    "@types/react-router-redux": "^5.0.1",
+    "@types/react-test-renderer": "^16.0.0",
+    "@types/redux-devtools": "^3.0.42",
+    "@types/redux-mock-store": "^0.0.13",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "express": "^4.15.3",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^22.0.3",
+    "react-hot-loader": "^4.1.0",
+    "react-test-renderer": "^16.2.0",
+    "react-transform-catch-errors": "^1.0.2",
+    "react-transform-hmr": "^1.0.4",
+    "redbox-react": "^1.5.0",
+    "redux-mock-store": "^1.2.3",
+    "rimraf": "^2.6.1",
+    "ts-jest": "^22.0.1",
+    "tslint": "^5.3.2",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^2.6.2",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-middleware": "^3.1.2",
+    "webpack-dev-server": "^3.1.3",
+    "webpack-hot-middleware": "^2.18.0"
+  },
+  "dependencies": {
+    "awesome-typescript-loader": "^3.1.3",
+    "html-loader": "^0.5.4",
+    "lodash": "^4.17.4",
+    "material-ui": "^0.20.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "redux": "^3.6.0"
+  }
+}

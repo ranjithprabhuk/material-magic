@@ -1,0 +1,21 @@
+{
+  "version": "2.3.2",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "outDir": "build",
+    // "lib": ["es2015.symbol"]
+  },
+  "exclude": [
+    "build",
+    "config",
+    "node_modules",
+    "dev_server.js"
+  ]
+}
