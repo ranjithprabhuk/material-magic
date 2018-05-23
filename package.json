@@ -5,12 +5,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build:webpack": "NODE_ENV=production webpack --config config/webpack.prod.config.js  --progress --profile --colors",
+    "build:webpack": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js  --progress --profile --colors",
     "build": "npm run clean && npm run build:webpack",
     "clean": "rimraf build",
     "start": "npm run clean && webpack-dev-server --config config/webpack.dev.config.js --progress --profile --colors",
     "test": "npm run clean && jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "lint": "tslint -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -71,7 +72,8 @@
     "webpack-cli": "^2.0.14",
     "webpack-dev-middleware": "^3.1.2",
     "webpack-dev-server": "^3.1.3",
-    "webpack-hot-middleware": "^2.18.0"
+    "webpack-hot-middleware": "^2.18.0",
+    "cross-env": "^5.1.6"
   },
   "dependencies": {
     "awesome-typescript-loader": "^3.1.3",

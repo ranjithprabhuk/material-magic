@@ -5,7 +5,7 @@ import {CounterList} from '../../counterlist';
 import {Route} from 'react-router-dom';
 import {CounterListPage, HomePage} from './RoutePaths';
 import Home from './Home';
-import {RouteComponentProps, Switch} from 'react-router';
+import {Switch} from 'react-router';
 
 const NoMatch = () => (
   <h1 style={{color:'red'}}>Page not found!</h1>
