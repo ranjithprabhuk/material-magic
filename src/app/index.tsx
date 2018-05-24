@@ -24,6 +24,28 @@ export const HelloComponent = () =>
     <div>
       <AppBar color='primary' position='static'>
         <Toolbar>
+          <IconButton color='default' aria-label='Menu'>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant='title' color='inherit'>
+            Title
+          </Typography>
+          <Button color='inherit'>Login</Button>
+        </Toolbar>
+      </AppBar>
+      <AppBar color='secondary' position='static'>
+        <Toolbar>
+          <IconButton color='primary' aria-label='Menu'>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant='title' color='inherit'>
+            Title
+          </Typography>
+          <Button color='inherit'>Login</Button>
+        </Toolbar>
+      </AppBar>
+      <AppBar color='default' position='static'>
+        <Toolbar>
           <IconButton color='primary' aria-label='Menu'>
             <MenuIcon />
           </IconButton>

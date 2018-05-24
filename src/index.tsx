@@ -6,13 +6,18 @@ import { createHashHistory } from 'history';
 import { ConnectedRouter } from 'react-router-redux';
 import { HelloComponent } from './app';
 import { MuiThemeProvider, createMuiTheme, Theme } from '@material-ui/core/styles';
-import { purple, green, indigo, pink, red } from '@material-ui/core/colors';
+import { purple, green, indigo, pink, red, lime, lightGreen, deepPurple } from '@material-ui/core/colors';
 
 const theme: Theme = createMuiTheme({
   palette: {
-    primary: red,
-    secondary: pink,
-    error: red,
+    primary: deepPurple,
+    secondary: lightGreen,
+    error: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    },
   },
 });
 
