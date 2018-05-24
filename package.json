@@ -12,7 +12,8 @@
     "test": "npm run clean && jest",
     "test:watch": "npm test -- --watch",
     "lint": "tslint -p tsconfig.json",
-    "server": "node server.js"
+    "server": "node server.js",
+    "heroku-postbuild": "npm run build:webpack"
   },
   "repository": {
     "type": "git",
