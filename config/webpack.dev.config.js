@@ -15,14 +15,14 @@ const plugins = [
 module.exports = require('./webpack.shared.config')({
   mode: 'development',
   srcs: [
-    path.join(process.cwd(), 'app')
+    path.join(process.cwd(), 'src')
   ],
   debug: true,
   // Add hot reloading in development
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
-    path.join(process.cwd(), 'app/index.tsx'),
+    path.join(process.cwd(), 'src/index.tsx'),
   ],
 
   output: {
@@ -31,7 +31,7 @@ module.exports = require('./webpack.shared.config')({
   },
 
   resolve: {
-    modules: ['app', 'node_modules']
+    modules: ['src', 'node_modules']
   },
 
   plugins: plugins,

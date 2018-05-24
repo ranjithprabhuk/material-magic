@@ -4,29 +4,30 @@ import { Store } from 'redux';
 import { Provider } from 'react-redux';
 import { createHashHistory } from 'history';
 import { ConnectedRouter } from 'react-router-redux';
-import { App, IAppState } from './main';
+import { HelloComponent } from './app';
 import { MuiThemeProvider, createMuiTheme, Theme } from '@material-ui/core/styles';
-import { purple, green } from '@material-ui/core/colors';
+import { purple, green, indigo, pink, red } from '@material-ui/core/colors';
 
 const theme: Theme = createMuiTheme({
   palette: {
-    primary: purple,
-    secondary: green,
+    primary: red,
+    secondary: pink,
+    error: red,
   },
 });
 
 declare const require: (name: String) => any;
 
 const history = createHashHistory();
-const store: Store<IAppState> = (process.env.NODE_ENV !== 'production')
-  ? (require('./store.dev') as any).configureStore(history)
-  : (require('./store.prod') as any).configureStore(history);
+const store: Store<any> = (process.env.NODE_ENV !== 'production')
+  ? (require('./store/store.dev') as any).configureStore(history)
+  : (require('./store/store.prod') as any).configureStore(history);
 
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <ConnectedRouter store={store} history={history}>
-        <App />
+        <HelloComponent />
       </ConnectedRouter>
     </MuiThemeProvider>
   </Provider>,

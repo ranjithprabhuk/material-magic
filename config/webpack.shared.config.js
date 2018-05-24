@@ -19,7 +19,7 @@ module.exports = (options) => ({
     }, {
       test: /\.(ts|tsx)?$/,
       include: options.srcs,
-      loader: 'awesome-typescript-loader'
+      loader: 'ts-loader'
     }, {
       test: /\.css$/,
       include: options.srcs,

@@ -16,10 +16,10 @@ export class App extends React.Component<object, object> {
 
     return (
         <div>
-          <MenuBar title='Title'/>
+          {/* <MenuBar title='Title'/> */}
           <Switch>
-            <Route exact path={HomePage} component={Home} />
-            <Route exact path={CounterListPage} component={CounterList} />
+            {/* <Route exact path={HomePage} component={Home} />
+            <Route exact path={CounterListPage} component={CounterList} /> */}
             <Route component={NoMatch}/>
           </Switch>
         </div>
