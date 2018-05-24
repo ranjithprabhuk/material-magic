@@ -71,7 +71,7 @@ module.exports = (options) => ({
   // },
 
   resolve: Object.assign({
-    modules: ['app', 'node_modules'],
+    modules: ['src', 'node_modules'],
     extensions: ['.ts', '.tsx', '.js'],
     mainFields: [
       'browser',

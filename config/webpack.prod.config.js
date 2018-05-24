@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = require('./webpack.shared.config')({
   mode: 'production',
   entry: [
-    path.join(process.cwd(), 'app/index.tsx'),
+    path.join(process.cwd(), 'src/index.tsx'),
   ],
 
   output: {
