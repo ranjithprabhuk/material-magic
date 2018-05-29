@@ -20,7 +20,7 @@ module.exports = require('./webpack.shared.config')({
   debug: true,
   // Add hot reloading in development
   entry: [
-    'webpack-dev-server/client?http://0.0.0.0:8080',
+    'webpack-dev-server/client?http://0.0.0.0:3000',
     'webpack/hot/only-dev-server',
     path.join(process.cwd(), 'src/index.tsx'),
   ],
@@ -42,6 +42,7 @@ module.exports = require('./webpack.shared.config')({
     historyApiFallback: true,
     contentBase: './build',
     hot: true,
+    port: 3000
   }
 
 });
