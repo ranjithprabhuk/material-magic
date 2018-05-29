@@ -1,4 +1,4 @@
-### Material-Magic
+# Material-Magic
 
 React Redux Material UI Admin Dashboard (Typescript + React + Redux + React-Router v4 + Material UI)
 =======================================

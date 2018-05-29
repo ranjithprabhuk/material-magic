@@ -1,38 +1,27 @@
+
 import * as React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import {Route, Redirect, Switch} from 'react-router-dom';
+import Login from './login';
+import MiniDrawer from './layout';
 
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  flex: {
-    flex: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-};
+const NoMatch = () => (
+  <h1 style={{color:'red'}}>Page not found!</h1>
+);
 
-export const HelloComponent = () =>
-    <div>
-      <AppBar color='primary' position='static'>
-        <Toolbar>
-          <IconButton color='primary' aria-label='Menu'>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant='title' color='inherit'>
-            Title
-          </Typography>
-          <Button color='inherit'>Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>;
+export class App extends React.Component<object, object> {
+  public render(): React.ReactElement<App> {
 
+    return (
+        <div>
+          <Switch>
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/layout' component={MiniDrawer} />
+            <Redirect exact from='/' to='login' />
+            <Route component={NoMatch}/>
+          </Switch>
+        </div>
+    );
+  }
+}
 
+export default App;
