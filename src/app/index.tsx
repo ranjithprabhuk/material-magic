@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {Route, Redirect, Switch} from 'react-router-dom';
 import Login from './login';
-import MiniDrawer from './layout';
+import Dashboard from './dashboard';
 
 const NoMatch = () => (
   <h1 style={{color:'red'}}>Page not found!</h1>
@@ -15,7 +15,7 @@ export class App extends React.Component<object, object> {
         <div>
           <Switch>
             <Route exact path='/login' component={Login} />
-            <Route exact path='/layout' component={MiniDrawer} />
+            <Route exact path='/dashboard' component={Dashboard} />
             <Redirect exact from='/' to='login' />
             <Route component={NoMatch}/>
           </Switch>

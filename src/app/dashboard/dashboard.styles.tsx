@@ -2,7 +2,7 @@ import { Theme } from '@material-ui/core';
 
 const drawerWidth = 240;
 
-export const layoutStyles = (theme: Theme): any => ({
+export const dashboardStyles = (theme: Theme): any => ({
   root: {
     flexGrow: 1,
     zIndex: 1,
