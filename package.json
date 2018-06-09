@@ -54,6 +54,7 @@
     "@types/react-test-renderer": "^16.0.0",
     "@types/redux-devtools": "^3.0.42",
     "@types/redux-mock-store": "^0.0.13",
+    "classnames": "^2.2.6",
     "cross-env": "^5.1.6",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -81,6 +82,7 @@
   "dependencies": {
     "@material-ui/core": "^1.2.0",
     "@material-ui/icons": "^1.0.0",
+    "@types/classnames": "^2.2.4",
     "html-loader": "^0.5.4",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
