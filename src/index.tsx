@@ -8,7 +8,7 @@ import { App } from './app';
 import { MuiThemeProvider, createMuiTheme, Theme } from '@material-ui/core/styles';
 import { purple, green, indigo, pink, red, lime, lightGreen, deepPurple } from '@material-ui/core/colors';
 
-const theme: Theme = createMuiTheme({
+export const theme: Theme = createMuiTheme({
   palette: {
     primary: deepPurple,
     secondary: lightGreen,
@@ -19,6 +19,7 @@ const theme: Theme = createMuiTheme({
       contrastText: '#000',
     },
   },
+  direction: 'ltr',
 });
 
 declare const require: (name: String) => any;
