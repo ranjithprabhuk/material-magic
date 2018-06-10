@@ -6,7 +6,7 @@ import { createHashHistory } from 'history';
 import { ConnectedRouter } from 'react-router-redux';
 import { App } from './app';
 import { MuiThemeProvider, createMuiTheme, Theme } from '@material-ui/core/styles';
-import { purple, green, indigo, pink, red, lime, lightGreen, deepPurple } from '@material-ui/core/colors';
+import { lightGreen, deepPurple } from '@material-ui/core/colors';
 import './assets/scss/styles.scss';
 
 export const theme: Theme = createMuiTheme({

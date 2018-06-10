@@ -1,37 +1,28 @@
 import * as React from 'react';
-import { withStyles, Theme } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { homeStyles } from './home.styles';
-import { IDashboardProps, IDashboardState } from './home.interface';
+import { IHomeProps, IHomeState } from './home.interface';
+import MediaControlCard from '../components/widget';
 
-class Home extends React.Component<IDashboardProps, IDashboardState> {
+class Home extends React.Component<IHomeProps, IHomeState> {
     public render(): React.ReactElement<Home> {
         const { classes } = this.props;
 
         return (
             <div className={classes.root}>
-                <Grid container spacing={24}>
-                    <Grid item xs={12}>
-                        <Paper className={classes.paper}>xs=12</Paper>
+                <Grid container spacing={8}>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <MediaControlCard />
                     </Grid>
-                    <Grid item xs={6}>
-                        <Paper className={classes.paper}>xs=6</Paper>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <MediaControlCard />
                     </Grid>
-                    <Grid item xs={6}>
-                        <Paper className={classes.paper}>xs=6</Paper>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <MediaControlCard />
                     </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
+                    <Grid item xs={12} sm={6} md={3}>
+                        <MediaControlCard />
                     </Grid>
                 </Grid>
             </div>

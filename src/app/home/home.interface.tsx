@@ -1,14 +1,14 @@
 import { Theme } from '@material-ui/core';
 
-interface IDashboardOwnProps {
+interface IHomeOwnProps {
     classes: any;
 }
-interface IDashboardStateProps {
+interface IHomeStateProps {
     theme: Theme;
 }
 
-export type IDashboardProps = IDashboardOwnProps & IDashboardStateProps;
+export type IHomeProps = IHomeOwnProps & IHomeStateProps;
 
-export interface IDashboardState {
+export interface IHomeState {
     open: boolean;
 }

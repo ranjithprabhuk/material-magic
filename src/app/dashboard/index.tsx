@@ -9,7 +9,7 @@ import { mailFolderListItems, otherMailFolderListItems } from './menuItems';
 import { dashboardStyles } from './dashboard.styles';
 import { IDashboardProps, IDashboardState } from './dashboard.interface';
 import Home from '../home';
-import { Route, Redirect } from 'react-router';
+import { Route } from 'react-router';
 
 class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
   constructor(props: IDashboardProps, context: any) {
@@ -29,7 +29,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
 
   public render(): React.ReactElement<Dashboard> {
     const { classes, theme } = this.props;
-    console.log('propss', this.props);
+
     return (
       <div className={classes.root}>
         <AppBar position='absolute' className={classNames(classes.appBar, this.state.open && classes.appBarShift)}>
@@ -43,7 +43,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
               <MenuIcon />
             </IconButton>
             <Typography variant='title' color='inherit' noWrap>
-              Mini variant drawer
+              Material Magic
             </Typography>
           </Toolbar>
         </AppBar>
@@ -66,9 +66,8 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar}>
-            <div style={{ marginTop: '65px', width: '100%' }}>
-              <Route path='/' component={Home} />
-              <Redirect exact from='/dashboard' to='dashboard/home' />
+            <div style={{ width: '100%' }}>
+              <Route exact path='/dashboard/home' component={Home} />
             </div>
           </div>
         </main>

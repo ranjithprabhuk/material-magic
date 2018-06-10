@@ -1,4 +1,3 @@
-import { Theme } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
 
 export const styles = {

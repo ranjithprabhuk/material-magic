@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import Login from './login';
 import Dashboard from './dashboard';
-import Home from './home';
 
 const NoMatch = () => <h1 style={{ color: 'red' }}>Page not found!</h1>;
 
