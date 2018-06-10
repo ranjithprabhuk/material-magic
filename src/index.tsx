@@ -10,33 +10,34 @@ import { purple, green, indigo, pink, red, lime, lightGreen, deepPurple } from '
 import './assets/scss/styles.scss';
 
 export const theme: Theme = createMuiTheme({
-  palette: {
-    primary: deepPurple,
-    secondary: lightGreen,
-    error: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
+    palette: {
+        primary: deepPurple,
+        secondary: lightGreen,
+        error: {
+            light: '#ff7961',
+            main: '#f44336',
+            dark: '#ba000d',
+            contrastText: '#000',
+        },
     },
-  },
-  direction: 'ltr',
+    direction: 'ltr',
 });
 
 declare const require: (name: String) => any;
 
 const history = createHashHistory();
-const store: Store<any> = (process.env.NODE_ENV !== 'production')
-  ? (require('./store/store.dev') as any).configureStore(history)
-  : (require('./store/store.prod') as any).configureStore(history);
+const store: Store<any> =
+    process.env.NODE_ENV !== 'production'
+        ? (require('./store/store.dev') as any).configureStore(history)
+        : (require('./store/store.prod') as any).configureStore(history);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <MuiThemeProvider theme={theme}>
-      <ConnectedRouter store={store} history={history}>
-        <App />
-      </ConnectedRouter>
-    </MuiThemeProvider>
-  </Provider>,
-  document.getElementById('app'),
+    <Provider store={store}>
+        <MuiThemeProvider theme={theme}>
+            <ConnectedRouter store={store} history={history}>
+                <App />
+            </ConnectedRouter>
+        </MuiThemeProvider>
+    </Provider>,
+    document.getElementById('app'),
 );
