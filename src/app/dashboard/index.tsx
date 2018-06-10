@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
-import { withStyles, Theme } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { Drawer, AppBar, Toolbar, List, Typography, Divider, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -10,8 +10,6 @@ import { dashboardStyles } from './dashboard.styles';
 import { IDashboardProps, IDashboardState } from './dashboard.interface';
 import Home from '../home';
 import { Route, Redirect } from 'react-router';
-import { Link } from 'react-router-dom';
-import {NestedView} from './routing';
 
 class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
   constructor(props: IDashboardProps, context: any) {
