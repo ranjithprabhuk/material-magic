@@ -9,6 +9,7 @@ import { mailFolderListItems, otherMailFolderListItems } from './menuItems';
 import { dashboardStyles } from './dashboard.styles';
 import { IDashboardProps, IDashboardState } from './dashboard.interface';
 import Home from '../home';
+import Charts from '../charts';
 import { Route } from 'react-router';
 
 class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
@@ -68,6 +69,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
           <div className={classes.toolbar}>
             <div style={{ width: '100%' }}>
               <Route exact path='/dashboard/home' component={Home} />
+              <Route exact path='/dashboard/charts' component={Charts} />
             </div>
           </div>
         </main>
