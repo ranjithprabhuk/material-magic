@@ -5,23 +5,9 @@ import { Provider } from 'react-redux';
 import { createHashHistory } from 'history';
 import { ConnectedRouter } from 'react-router-redux';
 import { App } from './app';
-import { MuiThemeProvider, createMuiTheme, Theme } from '@material-ui/core/styles';
-import { lightGreen, deepPurple } from '@material-ui/core/colors';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import './assets/scss/styles.scss';
-
-export const theme: Theme = createMuiTheme({
-    palette: {
-        primary: deepPurple,
-        secondary: lightGreen,
-        error: {
-            light: '#ff7961',
-            main: '#f44336',
-            dark: '#ba000d',
-            contrastText: '#000',
-        },
-    },
-    direction: 'ltr',
-});
+import { theme } from './Theme';
 
 declare const require: (name: String) => any;
 
