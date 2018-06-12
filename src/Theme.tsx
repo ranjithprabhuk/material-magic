@@ -19,11 +19,19 @@ export const theme: Theme = createMuiTheme({
           // Name of the rule
           textPrimary: {
             // Some CSS
-            background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+            background: `linear-gradient(45deg, ${deepPurple[400]} 30%, ${deepPurple['600']} 90%)`,
             borderRadius: 3,
             border: 0,
             color: 'white',
 
+            padding: '0 30px',
+            boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
+          },
+          textSecondary: {
+            background: `linear-gradient(45deg, ${lightGreen[400]} 30%, ${lightGreen['600']} 90%)`,
+            borderRadius: 3,
+            border: 0,
+            color: 'white',
             padding: '0 30px',
             boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
           },
