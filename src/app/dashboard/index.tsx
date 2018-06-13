@@ -10,6 +10,7 @@ import { dashboardStyles } from './dashboard.styles';
 import { IDashboardProps, IDashboardState } from './dashboard.interface';
 import Home from '../home';
 import Charts from '../charts';
+import Buttons from '../buttons';
 import { Route } from 'react-router';
 
 class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
@@ -70,6 +71,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
             <div style={{ width: '100%' }}>
               <Route exact path='/dashboard/home' component={Home} />
               <Route exact path='/dashboard/charts' component={Charts} />
+              <Route exact path='/dashboard/buttons' component={Buttons} />
             </div>
           </div>
         </main>

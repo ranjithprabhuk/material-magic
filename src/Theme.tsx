@@ -35,6 +35,14 @@ export const theme: Theme = createMuiTheme({
             padding: '0 30px',
             boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
           },
+          containedPrimary: {
+            background: `linear-gradient(45deg, ${lightGreen[400]} 30%, ${lightGreen['600']} 90%)`,
+            borderRadius: 3,
+            border: 0,
+            color: 'white',
+            padding: '0 30px',
+            boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
+          },
         },
       },
 });

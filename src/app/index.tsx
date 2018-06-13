@@ -13,6 +13,7 @@ export class App extends React.Component<object, object> {
           <Route exact path='/login' component={Login} />
           <Route path='/dashboard' component={Dashboard} />
           <Redirect exact from='/' to='login' />
+          <Redirect from='/dashboard' to='dashboard/home' />
           <Route component={NoMatch} />
         </Switch>
       </div>
