@@ -4,6 +4,7 @@ import {Grid, Paper, Typography} from '@material-ui/core';
 import { homeStyles } from './home.styles';
 import { IHomeProps, IHomeState } from './home.interface';
 import MediaControlCard from '../components/widget';
+import StarIcon from '@material-ui/icons/Star';
 
 class Home extends React.Component<IHomeProps, IHomeState> {
     public render(): React.ReactElement<Home> {
@@ -38,7 +39,9 @@ class Home extends React.Component<IHomeProps, IHomeState> {
                                     </div>
                                 </Grid>
                                 <Grid item xs={5}>
-                                    <Paper style={{background: '#326822', width: '100%', height: '100%'}}>
+                                    <Paper style={{background: '#326822', width: '100%', height: '100%',
+                                        display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 50}}>
+                                        <StarIcon />
                                     </Paper>
                                 </Grid>
                             </Grid>
