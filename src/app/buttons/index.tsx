@@ -22,7 +22,8 @@ class Buttons extends React.Component<IHomeProps, IHomeState> {
                     <Grid item sm={12} md={6}>
                         <Card>
                             <div><Button variant='flat'>Flat Button</Button></div>
-                            <div><Button variant='contained'>Contained Button</Button></div>
+                            <div><Button variant='contained' color='primary'>Contained Button</Button></div>
+                            <div><Button variant='flat' color='primary'>Contained Button</Button></div>
                             <div><Button variant='raised'>Raised Button</Button></div>
                             <div><Button variant='fab'>Fab Button</Button></div>
                         </Card>
