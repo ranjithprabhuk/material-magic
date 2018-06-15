@@ -5,13 +5,14 @@ import { Drawer, AppBar, Toolbar, List, Typography, Divider, IconButton } from '
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { mailFolderListItems, otherMailFolderListItems } from './menuItems';
+import { otherMailFolderListItems } from './menuItems';
 import { dashboardStyles } from './dashboard.styles';
 import { IDashboardProps, IDashboardState } from './IDashboard';
 import Home from '../home';
 import Charts from '../charts';
 import Buttons from '../buttons';
 import { Route, Redirect } from 'react-router-dom';
+import Sidebar from './SideBar';
 
 class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
   constructor(props: IDashboardProps, context: any) {
@@ -67,7 +68,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
           </IconButton>
         </div>
         <Divider />
-        <List>{mailFolderListItems}</List>
+        <List><Sidebar /></List>
         <Divider />
         <List>{otherMailFolderListItems}</List>
       </Drawer>
@@ -87,7 +88,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
               <Route exact path='/dashboard/home' component={Home} />
               <Route exact path='/dashboard/charts' component={Charts} />
               <Route exact path='/dashboard/buttons' component={Buttons} />
-              <Redirect exact from='/dashboard' to='dashboard/home' />
+              <Redirect exact from='/' to='/dashboard/home' />
             </div>
           </div>
         </main>
