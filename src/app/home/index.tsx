@@ -10,9 +10,7 @@ import { defineColours, ThemeConfig } from '../../theme';
 
 class Home extends React.Component<IHomeProps, IHomeState> {
   public render(): React.ReactElement<Home> {
-    const { classes, theme } = this.props;
-    const colorValue = defineColours(theme.palette.grey);
-    console.log('valueee', colorValue);
+    const { classes } = this.props;
 
     return (
       <div className={classes.root}>
