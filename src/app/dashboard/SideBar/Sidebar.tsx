@@ -1,19 +1,43 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import { Drawer, List, Typography, Divider, IconButton } from '@material-ui/core';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import StarIcon from '@material-ui/icons/Star';
-import MailIcon from '@material-ui/icons/Mail';
-import DeleteIcon from '@material-ui/icons/Delete';
 import ReportIcon from '@material-ui/icons/Report';
 import { Link } from 'react-router-dom';
+import { ISidebarProps } from './ISideBar';
+import {sideBarStyles} from './sideBar.styles';
 
-export default class SideBar extends React.Component<any, any> {
+class SideBar extends React.Component<ISidebarProps, any> {
   public render(): React.ReactElement<SideBar> {
+    const {classes} = this.props;
+
     return (
-      <div>
+      <Drawer
+        variant='permanent'
+        classes={{
+          paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
+        }}
+        open={this.props.isOpen}
+      >
+        <div className={classes.toolbar}>
+          <Typography variant='title' color='primary' noWrap>
+            Material Magic
+          </Typography>
+          <IconButton onClick={() => this.props.handleDrawerClose()}>
+            {this.props.theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+        <div>
         <Link to='/dashboard/home'>
           <ListItem button>
             <ListItemIcon>
@@ -47,29 +71,11 @@ export default class SideBar extends React.Component<any, any> {
           </ListItem>
         </Link>
       </div>
+        </List>
+        <Divider />
+      </Drawer>
     );
   }
 }
 
-export const otherMailFolderListItems = (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-        <MailIcon />
-      </ListItemIcon>
-      <ListItemText primary='All mail' />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DeleteIcon />
-      </ListItemIcon>
-      <ListItemText primary='Trash' />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ReportIcon />
-      </ListItemIcon>
-      <ListItemText primary='Spam' />
-    </ListItem>
-  </div>
-);
+export default withStyles(sideBarStyles, {withTheme: true})(SideBar);

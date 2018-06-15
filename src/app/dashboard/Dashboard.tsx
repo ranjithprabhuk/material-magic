@@ -68,7 +68,6 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
           </IconButton>
         </div>
         <Divider />
-        <List><Sidebar /></List>
         <Divider />
         <List>{otherMailFolderListItems}</List>
       </Drawer>
@@ -80,7 +79,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
 
     return (
       <div className={classes.root}>
-        {this.renderAppHeader(classes)}
+        <Sidebar isOpen={this.state.open} handleDrawerClose={this.handleDrawerClose} />
         {this.renderSidebar(classes)}
         <main className={classes.content}>
           <div className={classes.toolbar}>
