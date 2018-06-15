@@ -8,7 +8,7 @@ export const ThemeConfig: IThemeConfig = {
   secondaryColor: pink,
   warningColor: orange,
   dangerColor: red,
-  direction: 'rtl',
+  direction: 'ltr',
 };
 
 export const defineColours = (color: Color, disableGradient?: boolean): string =>
