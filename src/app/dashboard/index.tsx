@@ -44,7 +44,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant='title' color='inherit' noWrap>
+            <Typography variant='title' color='inherit' noWrap className={classNames(this.state.open && classes.hide)}>
               Material Magic
             </Typography>
           </Toolbar>
@@ -57,6 +57,9 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
           open={this.state.open}
         >
           <div className={classes.toolbar}>
+            <Typography variant='title' color='primary' noWrap>
+              Material Magic
+            </Typography>
             <IconButton onClick={this.handleDrawerClose}>
               {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </IconButton>
