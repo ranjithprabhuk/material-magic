@@ -8,6 +8,7 @@ export const ThemeConfig: IThemeConfig = {
   secondaryColor: pink,
   warningColor: orange,
   dangerColor: red,
+  direction: 'rtl',
 };
 
 export const defineColours = (color: Color, disableGradient?: boolean): string =>
@@ -29,7 +30,7 @@ export const theme: Theme = createMuiTheme({
       contrastText: '#000',
     },
   },
-  direction: 'ltr',
+  direction: ThemeConfig.direction,
   overrides: {
     MuiButton: {
       containedPrimary: {

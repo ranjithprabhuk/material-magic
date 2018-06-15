@@ -6,4 +6,5 @@ export interface IThemeConfig {
   secondaryColor: Color;
   warningColor: Color;
   dangerColor: Color;
+  direction: 'ltr' | 'rtl';
 }
