@@ -10,14 +10,19 @@ export const statsWidgetStyles = (theme: Theme): any => ({
     alignItems: 'center',
     fontSize: 50,
     color: '#fff',
-    transition: theme.transitions.create(['margin', 'transform'], {
-      easing: theme.transitions.easing.easeInOut,
+  },
+  statContent: {
+    padding: 12,
+    transition: theme.transitions.create(['margin'], {
+      easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
     '&:hover': {
-      transform: 'scale(1.025)',
-      overflow: 'hidden',
-      margin: '-8px 8px 8px -8px',
+      margin: 2,
+    },
+    '& $h1': {
+      fontWeight: 500,
+      marginBottom: 10,
     },
   },
 });

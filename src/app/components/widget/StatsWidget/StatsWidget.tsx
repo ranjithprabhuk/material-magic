@@ -22,17 +22,17 @@ const StatsWidget: React.SFC<IStatsWidgetProps> = ({
       <Paper square={square}>
         <Grid container>
           <Grid item xs={7} style={{order: isRightAligned ? 1 : 0 }}>
-            <div style={{ padding: 8 }}>
+            <div className={classes.statContent}>
               <Typography
-                variant='display3'
+                variant='display1'
                 noWrap
                 color={color}
-                style={{ color: textColor, fontWeight: 500}}
+                style={{ color: textColor}}
                 align={isRightAligned ? 'right' : 'left'}
               >
                 {value}
               </Typography>
-              <Typography variant='headline' align={isRightAligned ? 'right' : 'left'}>{title}</Typography>
+              <Typography variant='subheading' align={isRightAligned ? 'right' : 'left'}>{title}</Typography>
             </div>
           </Grid>
           <Grid item xs={5} style={{order: isRightAligned ? 0 : 1 }}>
