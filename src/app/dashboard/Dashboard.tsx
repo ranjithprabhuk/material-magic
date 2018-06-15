@@ -11,7 +11,7 @@ import { IDashboardProps, IDashboardState } from './IDashboard';
 import Home from '../home';
 import Charts from '../charts';
 import Buttons from '../buttons';
-import { Route } from 'react-router';
+import { Route, Redirect } from 'react-router-dom';
 
 class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
   constructor(props: IDashboardProps, context: any) {
@@ -87,6 +87,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
               <Route exact path='/dashboard/home' component={Home} />
               <Route exact path='/dashboard/charts' component={Charts} />
               <Route exact path='/dashboard/buttons' component={Buttons} />
+              <Redirect exact from='/dashboard' to='dashboard/home' />
             </div>
           </div>
         </main>
