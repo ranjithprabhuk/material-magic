@@ -29,6 +29,7 @@ const StatsWidget: React.SFC<IStatsWidgetProps> = ({
                 color={color}
                 style={{ color: textColor}}
                 align={isRightAligned ? 'right' : 'left'}
+                className={classes.statTitle}
               >
                 {value}
               </Typography>

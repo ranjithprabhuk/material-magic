@@ -7,7 +7,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { App } from './app';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import './assets/scss/styles.scss';
-import { theme } from './Theme';
+import { theme } from './theme';
 
 declare const require: (name: String) => any;
 

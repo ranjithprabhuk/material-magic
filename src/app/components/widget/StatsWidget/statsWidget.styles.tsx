@@ -20,9 +20,9 @@ export const statsWidgetStyles = (theme: Theme): any => ({
     '&:hover': {
       margin: 2,
     },
-    '& $h1': {
-      fontWeight: 500,
-      marginBottom: 10,
-    },
+  },
+  statTitle: {
+    fontWeight: 500,
+    marginBottom: 10,
   },
 });
