@@ -17,13 +17,13 @@ import {sideBarStyles} from './sideBar.styles';
 
 class SideBar extends React.Component<ISidebarProps, any> {
   public render(): React.ReactElement<SideBar> {
-    const {classes} = this.props;
+    const {classes, theme} = this.props;
 
     return (
       <Drawer
         variant='permanent'
         classes={{
-          paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
+          paper: classNames(classes.drawerPaper, !this.props.isOpen && classes.drawerPaperClose),
         }}
         open={this.props.isOpen}
       >
@@ -32,7 +32,7 @@ class SideBar extends React.Component<ISidebarProps, any> {
             Material Magic
           </Typography>
           <IconButton onClick={() => this.props.handleDrawerClose()}>
-            {this.props.theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme && theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
         <Divider />

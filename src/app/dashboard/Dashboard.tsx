@@ -13,6 +13,7 @@ import Charts from '../charts';
 import Buttons from '../buttons';
 import { Route, Redirect } from 'react-router-dom';
 import Sidebar from './SideBar';
+import Header from './Header';
 
 class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
   constructor(props: IDashboardProps, context: any) {
@@ -20,6 +21,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
     this.state = {
       open: false,
     };
+    this.handleDrawerClose = this.handleDrawerClose.bind(this);
   }
 
   public handleDrawerOpen = () => {
@@ -79,8 +81,8 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
 
     return (
       <div className={classes.root}>
+        <Header isOpen={this.state.open} handleDrawerOpen={this.handleDrawerOpen} />
         <Sidebar isOpen={this.state.open} handleDrawerClose={this.handleDrawerClose} />
-        {this.renderSidebar(classes)}
         <main className={classes.content}>
           <div className={classes.toolbar}>
             <div style={{ width: '100%' }}>
