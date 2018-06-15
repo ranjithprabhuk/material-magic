@@ -9,6 +9,7 @@ interface IStatsWidgetOwnProps {
   square?: boolean;
   textColor?: string;
   backgroundColor?: string;
+  direction?: 'rtl' | 'ltr';
 }
 
 interface IStatsWidgetStateProps {

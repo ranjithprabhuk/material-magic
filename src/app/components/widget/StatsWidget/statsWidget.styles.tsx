@@ -21,8 +21,11 @@ export const statsWidgetStyles = (theme: Theme): any => ({
       margin: 2,
     },
   },
-  statTitle: {
+  statValue: {
     fontWeight: 500,
     marginBottom: 10,
+  },
+  statTitle: {
+    color: 'rgba(0, 0, 0, 0.6)',
   },
 });

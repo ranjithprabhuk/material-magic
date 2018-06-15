@@ -14,29 +14,32 @@ const StatsWidget: React.SFC<IStatsWidgetProps> = ({
   textColor,
   backgroundColor,
   theme,
+  direction,
 }) => {
-  const isRightAligned = theme && theme.direction === 'rtl';
+  const isRightAligned = direction === 'rtl' || (theme && theme.direction === 'rtl');
 
   return (
     <div>
       <Paper square={square}>
         <Grid container>
-          <Grid item xs={7} style={{order: isRightAligned ? 1 : 0 }}>
+          <Grid item xs={7} style={{ order: isRightAligned ? 1 : 0 }}>
             <div className={classes.statContent}>
               <Typography
                 variant='display1'
                 noWrap
                 color={color}
-                style={{ color: textColor}}
+                style={{ color: textColor }}
                 align={isRightAligned ? 'right' : 'left'}
-                className={classes.statTitle}
+                className={classes.statValue}
               >
                 {value}
               </Typography>
-              <Typography variant='subheading' align={isRightAligned ? 'right' : 'left'}>{title}</Typography>
+              <Typography variant='subheading' align={isRightAligned ? 'right' : 'left'} className={classes.statTitle}>
+                {title}
+              </Typography>
             </div>
           </Grid>
-          <Grid item xs={5} style={{order: isRightAligned ? 0 : 1 }}>
+          <Grid item xs={5} style={{ order: isRightAligned ? 0 : 1 }}>
             <Paper className={classes.icon} style={{ background: backgroundColor }} square={square}>
               {component}
             </Paper>
