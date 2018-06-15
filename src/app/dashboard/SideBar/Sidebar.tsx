@@ -11,13 +11,28 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import StarIcon from '@material-ui/icons/Star';
 import ReportIcon from '@material-ui/icons/Report';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ISidebarProps } from './ISideBar';
-import {sideBarStyles} from './sideBar.styles';
+import { sideBarStyles } from './sideBar.styles';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import StarBorder from '@material-ui/icons/StarBorder';
+import Collapse from '@material-ui/core/Collapse';
 
 class SideBar extends React.Component<ISidebarProps, any> {
+  constructor(props: ISidebarProps) {
+    super(props);
+    this.state = {
+      open: false,
+    };
+  }
+
+  public handleClick = () => {
+    this.setState({ open: !this.state.open });
+  }
+
   public render(): React.ReactElement<SideBar> {
-    const {classes, theme} = this.props;
+    const { classes, theme } = this.props;
 
     return (
       <Drawer
@@ -37,40 +52,49 @@ class SideBar extends React.Component<ISidebarProps, any> {
         </div>
         <Divider />
         <List>
-        <div>
-        <Link to='/dashboard/home'>
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary='Dashboard' />
-          </ListItem>
-        </Link>
-        <Link to='/dashboard/widgets'>
-          <ListItem button>
-            <ListItemIcon>
-              <StarIcon />
-            </ListItemIcon>
-            <ListItemText primary='Widgets' />
-          </ListItem>
-        </Link>
-        <Link to='/dashboard/buttons'>
-          <ListItem button>
-            <ListItemIcon>
-              <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary='Buttons' />
-          </ListItem>
-        </Link>
-        <Link to='/dashboard/charts'>
-          <ListItem button>
-            <ListItemIcon>
-              <ReportIcon />
-            </ListItemIcon>
-            <ListItemText primary='Charts' />
-          </ListItem>
-        </Link>
-      </div>
+          <div>
+            <NavLink to='/dashboard/home' activeClassName={classes.navigation}>
+              <ListItem button className={classes.menuItem}>
+                <ListItemIcon>
+                  <InboxIcon />
+                </ListItemIcon>
+                <ListItemText className={classes.menuItemList} primary='Dashboard' />
+              </ListItem>
+            </NavLink>
+              <ListItem button className={classes.menuItem} onClick={this.handleClick}>
+                <ListItemIcon>
+                  <StarIcon />
+                </ListItemIcon>
+                <ListItemText className={classes.menuItemList} primary='Widgets' />
+                {this.state.open ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={this.state.open} timeout='auto' unmountOnExit>
+                <List component='div' disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                    <ListItemText inset primary='Starred' />
+                  </ListItem>
+                </List>
+              </Collapse>
+            <Link to='/dashboard/buttons'>
+              <ListItem button className={classes.menuItem}>
+                <ListItemIcon>
+                  <DraftsIcon />
+                </ListItemIcon>
+                <ListItemText className={classes.menuItemList} primary='Buttons' />
+              </ListItem>
+            </Link>
+            <Link to='/dashboard/charts'>
+              <ListItem button className={classes.menuItem}>
+                <ListItemIcon>
+                  <ReportIcon />
+                </ListItemIcon>
+                <ListItemText classes={{ primary: classes.primary }} primary='Charts' />
+              </ListItem>
+            </Link>
+          </div>
         </List>
         <Divider />
       </Drawer>
@@ -78,4 +102,4 @@ class SideBar extends React.Component<ISidebarProps, any> {
   }
 }
 
-export default withStyles(sideBarStyles, {withTheme: true})(SideBar);
+export default withStyles(sideBarStyles, { withTheme: true })(SideBar);
