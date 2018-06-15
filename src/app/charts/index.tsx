@@ -5,7 +5,7 @@ import { homeStyles } from './charts.styles';
 import { IHomeProps, IHomeState } from './charts.interface';
 
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Card, Button } from '@material-ui/core';
+import { Card, Button, Paper } from '@material-ui/core';
 const data = [
     { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
     { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
@@ -24,7 +24,7 @@ class Charts extends React.Component<IHomeProps, IHomeState> {
             <div className={classes.root}>
                 <Grid container spacing={8}>
                     <Grid item sm={12} md={6}>
-                        <Card>
+                        <Paper>
                             <ResponsiveContainer width='100%' height={300}>
                                 <AreaChart data={data}
                                     margin={{ top: 20, right: 20, left: 20, bottom: 20 }}>
@@ -35,7 +35,7 @@ class Charts extends React.Component<IHomeProps, IHomeState> {
                                     <Area type='monotone' dataKey='uv' stroke='#8884d8' fill='#8884d8' />
                                 </AreaChart>
                             </ResponsiveContainer>
-                        </Card>
+                        </Paper>
                     </Grid>
                     <Grid item sm={12} md={6}>
                         <Card>
