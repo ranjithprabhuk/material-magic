@@ -7,17 +7,27 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import StarIcon from '@material-ui/icons/Star';
-import ReportIcon from '@material-ui/icons/Report';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ISidebarProps } from './ISideBar';
 import { sideBarStyles } from './sideBar.styles';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Collapse from '@material-ui/core/Collapse';
+import {menuItems} from './menuItems';
+
+// const NavigationMenu = ({classes}: any) => menuItems.map((menu) => {
+//   return (
+//     <NavLink to='/dashboard/home' activeClassName={classes.navigation}>
+//       <ListItem button className={classes.menuItem}>
+//         <ListItemIcon>
+//           <InboxIcon />
+//         </ListItemIcon>
+//         <ListItemText className={classes.menuItemList} primary='Dashboard' />
+//       </ListItem>
+//     </NavLink>
+//   );
+// });
 
 class SideBar extends React.Component<ISidebarProps, any> {
   constructor(props: ISidebarProps) {
@@ -53,17 +63,18 @@ class SideBar extends React.Component<ISidebarProps, any> {
         <Divider />
         <List>
           <div>
-            <NavLink to='/dashboard/home' activeClassName={classes.navigation}>
+            {menuItems && menuItems.map((menu) =>
+              <NavLink to='/dashboard/home' activeClassName={classes.navigation} key={`menu_${menu.id}`}>
               <ListItem button className={classes.menuItem}>
                 <ListItemIcon>
-                  <InboxIcon />
+                  <StarBorder />
                 </ListItemIcon>
-                <ListItemText className={classes.menuItemList} primary='Dashboard' />
+                <ListItemText className={classes.menuItemList} primary={menu.title} />
               </ListItem>
-            </NavLink>
+            </NavLink>)}
               <ListItem button className={classes.menuItem} onClick={this.handleClick}>
                 <ListItemIcon>
-                  <StarIcon />
+                  <StarBorder />
                 </ListItemIcon>
                 <ListItemText className={classes.menuItemList} primary='Widgets' />
                 {this.state.open ? <ExpandLess /> : <ExpandMore />}
@@ -78,22 +89,6 @@ class SideBar extends React.Component<ISidebarProps, any> {
                   </ListItem>
                 </List>
               </Collapse>
-            <Link to='/dashboard/buttons'>
-              <ListItem button className={classes.menuItem}>
-                <ListItemIcon>
-                  <DraftsIcon />
-                </ListItemIcon>
-                <ListItemText className={classes.menuItemList} primary='Buttons' />
-              </ListItem>
-            </Link>
-            <Link to='/dashboard/charts'>
-              <ListItem button className={classes.menuItem}>
-                <ListItemIcon>
-                  <ReportIcon />
-                </ListItemIcon>
-                <ListItemText classes={{ primary: classes.primary }} primary='Charts' />
-              </ListItem>
-            </Link>
           </div>
         </List>
         <Divider />
