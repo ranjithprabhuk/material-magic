@@ -9,6 +9,7 @@ export const ThemeConfig: IThemeConfig = {
   warningColor: orange,
   dangerColor: red,
   direction: 'ltr',
+  drawerWidth: 240,
 };
 
 export const defineColours = (color: Color, disableGradient?: boolean): string =>
