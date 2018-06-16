@@ -26,7 +26,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
   }
 
   public render(): React.ReactElement<Dashboard> {
-    const { classes, location } = this.props;
+    const { classes } = this.props;
 
     return (
       <div className={classes.root}>
