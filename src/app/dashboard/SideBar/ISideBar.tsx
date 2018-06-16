@@ -1,11 +1,9 @@
 import { Theme } from '@material-ui/core';
-import * as History from 'history';
 
 interface ISidebarOwnProps {
     classes: any;
     isOpen: boolean;
     handleDrawerClose: Function;
-    location?: History.Location;
 }
 interface ISidebarStateProps {
     theme?: Theme;
