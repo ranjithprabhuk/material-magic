@@ -28,13 +28,13 @@ export const menuItems: Array<IMenuItems> = [
       {
         id: 22,
         title: 'Cool Widget',
-        path: '/dashboard/widgets/stats',
+        path: '/dashboard/widgets/coolstats',
         icon: <ReportIcon />,
       },
       {
         id: 23,
         title: 'More Widget',
-        path: '/dashboard/widgets/stats',
+        path: '/dashboard/widgets/morestats',
         icon: <ReportIcon />,
       },
     ],

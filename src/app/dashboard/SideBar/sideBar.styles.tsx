@@ -40,16 +40,19 @@ export const sideBarStyles = (theme: Theme): any => ({
       }),
     },
     '&:hover': {
-      '& .button': {
-        borderLeft: `3px solid ${theme.palette.primary.dark}`,
-      },
       '& div & div, & div': {
-        color: theme.palette.common.black,
-        backgroundColor: theme.palette.primary.light,
+        color: theme.palette.common.white,
+        backgroundColor: theme.palette.primary.dark,
       },
     },
   },
   nested: {
-    paddingLeft: theme.spacing.unit * 4,
+    backgroundColor: theme.palette.grey[300],
+  },
+  menuItem: {
+    borderRadius: 2,
+    paddingLeft: 20,
+    boxShadow: '1px 2px 3px 1px #eee',
+    margin: '6px 0px',
   },
 });

@@ -36,7 +36,9 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
 
     return (
       <List>
-        <div>{navigationMenuItems && navigationMenuItems.map((menu, index) => this.renderMenuItem(menu, index))}</div>
+        <div style={{margin: 5}}>
+          {navigationMenuItems && navigationMenuItems.map((menu, index) => this.renderMenuItem(menu, index))}
+        </div>
       </List>
     );
   }
