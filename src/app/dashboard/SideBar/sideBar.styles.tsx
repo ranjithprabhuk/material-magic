@@ -48,6 +48,11 @@ export const sideBarStyles = (theme: Theme): any => ({
       },
     },
   },
+  nestedMenuList: {
+    marginBottom: 6,
+    paddingBottom: 6,
+    borderBottom: '1px solid #eee',
+  },
   nestedMenuItems: {
     backgroundColor: theme.palette.grey[300],
     borderRadius: 2,

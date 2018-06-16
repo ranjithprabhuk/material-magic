@@ -66,7 +66,7 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
         <div key={`menu_${menu.id}`}>
           {menuItem}
           <Collapse in={menu.isOpen} timeout='auto' unmountOnExit>
-            <List component='div' disablePadding>
+            <List component='div' disablePadding className={classes.nestedMenuList}>
               {this.renderNestedMenuItems(menu.children)}
             </List>
           </Collapse>
