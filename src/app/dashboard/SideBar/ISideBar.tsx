@@ -13,9 +13,15 @@ interface ISidebarStateProps {
 
 export type ISidebarProps = ISidebarOwnProps & ISidebarStateProps;
 
+export interface ISidebarState {
+    navigationMenuItems: IMenuItems[];
+}
+
 export interface IMenuItems {
     id: number;
     title: string;
     path: string;
     icon: any;
+    isOpen?: boolean;
+    children?: Array<IMenuItems>;
 }

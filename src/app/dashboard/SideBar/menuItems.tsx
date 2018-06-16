@@ -14,8 +14,29 @@ export const menuItems: Array<IMenuItems> = [
   {
     id: 2,
     title: 'Widgets',
-    path: '/dashboard/widgets',
+    path: '',
     icon: DraftsIcon,
+    isOpen: false,
+    children: [
+      {
+        id: 21,
+        title: 'Stats Widget',
+        path: '/dashboard/widgets/stats',
+        icon: ReportIcon,
+      },
+      {
+        id: 22,
+        title: 'Cool Widget',
+        path: '/dashboard/widgets/stats',
+        icon: ReportIcon,
+      },
+      {
+        id: 23,
+        title: 'More Widget',
+        path: '/dashboard/widgets/stats',
+        icon: ReportIcon,
+      },
+    ],
   },
   {
     id: 3,
