@@ -75,14 +75,16 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
     return (
       nestedMenuItems.children &&
       nestedMenuItems.children.map(menu => (
-        <Collapse in={nestedMenuItems.isOpen} timeout='auto' unmountOnExit>
+        <Collapse in={nestedMenuItems.isOpen} timeout='auto' unmountOnExit  key={`menu_${menu.id}`}>
           <List component='div' disablePadding>
+          <NavLink to={menu.path} activeClassName={this.props.classes.navigation} key={`menu_${menu.id}`}>
             <ListItem button className={classes.nested}>
               <ListItemIcon>
                 <StarBorder />
               </ListItemIcon>
               <ListItemText inset primary={menu.title} />
             </ListItem>
+            </NavLink>
           </List>
         </Collapse>
       ))
