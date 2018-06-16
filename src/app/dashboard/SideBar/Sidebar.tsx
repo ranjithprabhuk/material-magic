@@ -27,8 +27,12 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
     if (menu.children && menu.children.length > 0) {
       const isMenuOpen = this.state.navigationMenuItems[index].isOpen;
       this.state.navigationMenuItems[index].isOpen = !isMenuOpen;
-      this.forceUpdate();
+    } else {
+      this.state.navigationMenuItems.forEach(menuItem => {
+        menuItem.isOpen = false;
+      });
     }
+    this.forceUpdate();
   }
 
   public renderNavigationMenu(): React.ReactElement<any> {
@@ -46,9 +50,13 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   public renderMenuItem(menu: IMenuItems, index: number): React.ReactElement<any> {
     const { classes } = this.props;
     const menuItem = (
-      <ListItem button className={classes.menuItem} onClick={() => this.handleMenuClick(menu, index)}>
+      <ListItem
+        button
+        className={classNames(classes.menuItem, menu.isOpen && classes.selectedMenu)}
+        onClick={() => this.handleMenuClick(menu, index)}
+      >
         <ListItemIcon>{menu.icon}</ListItemIcon>
-        <ListItemText className={classes.menuItemList} primary={menu.title} />
+        <ListItemText primary={menu.title} />
         {menu.children && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
       </ListItem>
     );
@@ -78,7 +86,7 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
 
     return nestedMenuItems.map(menu => (
       <NavLink to={menu.path} activeClassName={classes.navigation} key={`menu_${menu.id}`}>
-        <ListItem button className={classes.nested}>
+        <ListItem button className={classes.nestedMenuItems}>
           <ListItemIcon>{menu.icon}</ListItemIcon>
           <ListItemText inset primary={menu.title} />
         </ListItem>

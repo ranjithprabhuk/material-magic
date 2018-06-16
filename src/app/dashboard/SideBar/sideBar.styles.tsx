@@ -36,7 +36,7 @@ export const sideBarStyles = (theme: Theme): any => ({
     margin: '6px 0px',
   },
   navigation: {
-    '& $menuItem': {
+    '& $menuItem, & $nestedMenuItems': {
       background: defineColours(ThemeConfig.primaryColor),
       boxShadow: '1px 2px 3px 1px #bbb',
       transition: theme.transitions.create(['margin', 'border'], {
@@ -48,7 +48,14 @@ export const sideBarStyles = (theme: Theme): any => ({
       },
     },
   },
-  nested: {
+  nestedMenuItems: {
     backgroundColor: theme.palette.grey[300],
+    borderRadius: 2,
+    paddingLeft: 20,
+    boxShadow: '1px 2px 3px 1px #eee',
+    margin: '6px 0px',
+  },
+  selectedMenu: {
+    backgroundColor: theme.palette.grey[400],
   },
 });
