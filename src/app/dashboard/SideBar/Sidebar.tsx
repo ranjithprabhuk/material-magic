@@ -86,8 +86,8 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
     const { classes, isSidebarOpen } = this.props;
 
     return nestedMenuItems.map(menu => (
-      <NavLink to={menu.path} activeClassName={classes.navigation} key={`menu_${menu.id}`}>
-        <ListItem button className={classes.nestedMenuItems}>
+      <NavLink to={menu.path} activeClassName={classes.navigation} key={`nested_menu_${menu.id}`}>
+        <ListItem button className={classNames(classes.nestedMenuItem, isSidebarOpen && classes.nestedMenuItemAlignment)}>
           <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
           <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} inset primary={menu.title} />
         </ListItem>

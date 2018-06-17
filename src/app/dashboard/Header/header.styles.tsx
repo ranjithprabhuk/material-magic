@@ -1,5 +1,5 @@
 import { Theme } from '@material-ui/core';
-import { ThemeConfig } from '../../../theme';
+import { ThemeConfig, flexDirection } from '../../../theme';
 
 const drawerWidth = ThemeConfig.drawerWidth;
 
@@ -20,9 +20,12 @@ export const headerStyles = (theme: Theme): any => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  toolBar: {
+    flexDirection,
+  },
   menuButton: {
     marginLeft: 12,
-    marginRight: 36,
+    marginRight: 12,
   },
   hide: {
     display: 'none',

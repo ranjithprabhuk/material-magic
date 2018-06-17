@@ -13,7 +13,7 @@ class Header extends React.Component<IHeaderProps, any> {
 
     return (
       <AppBar position='absolute' className={classNames(classes.appBar, isSidebarOpen && classes.appBarShift)}>
-        <Toolbar disableGutters={!isSidebarOpen}>
+        <Toolbar disableGutters={!isSidebarOpen} className={classes.toolBar}>
           <IconButton
             color='inherit'
             aria-label='open drawer'

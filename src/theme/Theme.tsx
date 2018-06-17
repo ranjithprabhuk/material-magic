@@ -12,6 +12,8 @@ export const ThemeConfig: IThemeConfig = {
   drawerWidth: 240,
 };
 
+export const flexDirection = ThemeConfig.direction === 'ltr' ? 'row' : 'row-reverse';
+
 export const defineColours = (color: Color, disableGradient?: boolean): string =>
   ThemeConfig.isGradientEnabled && !disableGradient
     ? `linear-gradient(45deg, ${color[400]} 30%, ${color['600']} 90%)`

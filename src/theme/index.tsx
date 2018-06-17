@@ -1,1 +1,1 @@
-export {ThemeConfig, theme, defineColours} from './Theme';
+export {ThemeConfig, theme, defineColours, flexDirection} from './Theme';

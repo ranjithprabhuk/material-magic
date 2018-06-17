@@ -1,5 +1,5 @@
 import { Theme } from '@material-ui/core';
-import { ThemeConfig, defineColours } from '../../../theme';
+import { ThemeConfig, defineColours, flexDirection } from '../../../theme';
 
 export const sideBarStyles = (theme: Theme): any => ({
   drawerPaper: {
@@ -28,16 +28,18 @@ export const sideBarStyles = (theme: Theme): any => ({
     justifyContent: 'flex-end',
     padding: '0 8px',
     ...theme.mixins.toolbar,
+    flexDirection,
   },
   menuItem: {
     borderRadius: 2,
     paddingLeft: 20,
+    paddingRight: 3,
     boxShadow: '1px 2px 3px 1px #eee',
     margin: '6px 0px',
-    flexDirection: theme.direction === 'ltr' ? 'row' : 'row-reverse',
+    flexDirection,
   },
   navigation: {
-    '& $menuItem, & $nestedMenuItems': {
+    '& $menuItem, & $nestedMenuItem': {
       background: defineColours(ThemeConfig.primaryColor),
       boxShadow: '1px 2px 3px 1px #bbb',
       '& $icon, & $title span': {
@@ -50,13 +52,18 @@ export const sideBarStyles = (theme: Theme): any => ({
     paddingBottom: 6,
     borderBottom: '1px solid #eee',
   },
-  nestedMenuItems: {
+  nestedMenuItem: {
     backgroundColor: theme.palette.grey[300],
     borderRadius: 2,
     paddingLeft: 20,
+    paddingRight: 3,
     boxShadow: '1px 2px 3px 1px #eee',
     margin: '6px 0px',
-    flexDirection: theme.direction === 'ltr' ? 'row' : 'row-reverse',
+    flexDirection,
+  },
+  nestedMenuItemAlignment: {
+    paddingLeft: theme.direction === 'ltr' ? 30 : 0,
+    paddingRight: theme.direction === 'rtl' ? 15 : 0,
   },
   selectedMenu: {
     backgroundColor: theme.palette.grey[400],
