@@ -14,6 +14,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import { menuItems } from './menuItems';
+import { labels } from '../../../utils/app.constants';
 
 class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   constructor(props: ISidebarProps) {
@@ -107,7 +108,7 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
       >
         <div className={classes.toolbar}>
           <Typography variant='title' color='primary' noWrap>
-            Material Magic
+            {labels.appTitle}
           </Typography>
           <IconButton onClick={() => this.props.handleDrawerClose()}>
             {theme && theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}

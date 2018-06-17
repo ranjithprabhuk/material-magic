@@ -5,6 +5,7 @@ import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { IHeaderProps } from './IHeader';
 import { headerStyles } from './header.styles';
+import { labels } from '../../../utils/app.constants';
 
 class Header extends React.Component<IHeaderProps, any> {
   public render(): React.ReactElement<Header> {
@@ -22,7 +23,7 @@ class Header extends React.Component<IHeaderProps, any> {
             <MenuIcon />
           </IconButton>
           <Typography variant='title' color='inherit' noWrap className={classNames(this.props.isOpen && classes.hide)}>
-            Material Magic
+            {labels.appTitle}
           </Typography>
         </Toolbar>
       </AppBar>
