@@ -1,12 +1,11 @@
 import { Theme } from '@material-ui/core';
-
-const drawerWidth = 240;
+import { ThemeConfig, defineColours } from '../../../theme';
 
 export const sideBarStyles = (theme: Theme): any => ({
   drawerPaper: {
     position: 'relative',
     whiteSpace: 'nowrap',
-    width: drawerWidth,
+    width: ThemeConfig.drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -30,26 +29,38 @@ export const sideBarStyles = (theme: Theme): any => ({
     padding: '0 8px',
     ...theme.mixins.toolbar,
   },
+  menuItem: {
+    borderRadius: 2,
+    paddingLeft: 20,
+    boxShadow: '1px 2px 3px 1px #eee',
+    margin: '6px 0px',
+  },
   navigation: {
-    '& div, & div & div': {
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.common.white,
+    '& $menuItem, & $nestedMenuItems': {
+      background: defineColours(ThemeConfig.primaryColor),
+      boxShadow: '1px 2px 3px 1px #bbb',
       transition: theme.transitions.create(['margin', 'border'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-    },
-    '&:hover': {
-      '& .button': {
-        borderLeft: `3px solid ${theme.palette.primary.dark}`,
-      },
-      '& div & div, & div': {
-        color: theme.palette.common.black,
-        backgroundColor: theme.palette.primary.light,
+      '& $svg, & $span, & $div': {
+        color: '#fff!important',
       },
     },
   },
-  nested: {
-    paddingLeft: theme.spacing.unit * 4,
+  nestedMenuList: {
+    marginBottom: 6,
+    paddingBottom: 6,
+    borderBottom: '1px solid #eee',
+  },
+  nestedMenuItems: {
+    backgroundColor: theme.palette.grey[300],
+    borderRadius: 2,
+    paddingLeft: 20,
+    boxShadow: '1px 2px 3px 1px #eee',
+    margin: '6px 0px',
+  },
+  selectedMenu: {
+    backgroundColor: theme.palette.grey[400],
   },
 });

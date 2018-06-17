@@ -26,12 +26,12 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
   }
 
   public render(): React.ReactElement<Dashboard> {
-    const { classes, location } = this.props;
+    const { classes } = this.props;
 
     return (
       <div className={classes.root}>
         <Header isOpen={this.state.open} handleDrawerOpen={this.handleDrawerOpen} />
-        <Sidebar isOpen={this.state.open} handleDrawerClose={this.handleDrawerClose} location={location} />
+        <Sidebar isOpen={this.state.open} handleDrawerClose={this.handleDrawerClose} />
         <main className={classes.content}>
           <div className={classes.toolbar}>
             <div style={{ width: '100%' }}>

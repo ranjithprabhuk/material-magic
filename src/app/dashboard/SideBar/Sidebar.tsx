@@ -8,37 +8,91 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { NavLink } from 'react-router-dom';
-import { ISidebarProps } from './ISideBar';
+import { ISidebarProps, IMenuItems, ISidebarState } from './ISideBar';
 import { sideBarStyles } from './sideBar.styles';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
 import Collapse from '@material-ui/core/Collapse';
-import {menuItems} from './menuItems';
+import { menuItems } from './menuItems';
+import { labels } from '../../../utils/app.constants';
 
-// const NavigationMenu = ({classes}: any) => menuItems.map((menu) => {
-//   return (
-//     <NavLink to='/dashboard/home' activeClassName={classes.navigation}>
-//       <ListItem button className={classes.menuItem}>
-//         <ListItemIcon>
-//           <InboxIcon />
-//         </ListItemIcon>
-//         <ListItemText className={classes.menuItemList} primary='Dashboard' />
-//       </ListItem>
-//     </NavLink>
-//   );
-// });
-
-class SideBar extends React.Component<ISidebarProps, any> {
+class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   constructor(props: ISidebarProps) {
     super(props);
     this.state = {
-      open: false,
+      navigationMenuItems: menuItems,
     };
   }
 
-  public handleClick = () => {
-    this.setState({ open: !this.state.open });
+  public handleMenuClick(menu: IMenuItems, index: number): void {
+    if (menu.children && menu.children.length > 0) {
+      const isMenuOpen = this.state.navigationMenuItems[index].isOpen;
+      this.state.navigationMenuItems[index].isOpen = !isMenuOpen;
+    } else {
+      this.state.navigationMenuItems.forEach(menuItem => {
+        menuItem.isOpen = false;
+      });
+    }
+    this.forceUpdate();
+  }
+
+  public renderNavigationMenu(): React.ReactElement<any> {
+    const { navigationMenuItems } = this.state;
+
+    return (
+      <List>
+        <div style={{margin: 5}}>
+          {navigationMenuItems && navigationMenuItems.map((menu, index) => this.renderMenuItem(menu, index))}
+        </div>
+      </List>
+    );
+  }
+
+  public renderMenuItem(menu: IMenuItems, index: number): React.ReactElement<any> {
+    const { classes } = this.props;
+    const menuItem = (
+      <ListItem
+        button
+        className={classNames(classes.menuItem, menu.isOpen && classes.selectedMenu)}
+        onClick={() => this.handleMenuClick(menu, index)}
+      >
+        <ListItemIcon>{menu.icon}</ListItemIcon>
+        <ListItemText primary={menu.title} />
+        {menu.children && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
+      </ListItem>
+    );
+
+    if (menu.children) {
+      return (
+        <div key={`menu_${menu.id}`}>
+          {menuItem}
+          <Collapse in={menu.isOpen} timeout='auto' unmountOnExit>
+            <List component='div' disablePadding className={classes.nestedMenuList}>
+              {this.renderNestedMenuItems(menu.children)}
+            </List>
+          </Collapse>
+        </div>
+      );
+    } else {
+      return (
+        <NavLink to={menu.path} activeClassName={classes.navigation} key={`menu_${menu.id}`}>
+          {menuItem}
+        </NavLink>
+      );
+    }
+  }
+
+  public renderNestedMenuItems(nestedMenuItems: IMenuItems[]): any {
+    const { classes } = this.props;
+
+    return nestedMenuItems.map(menu => (
+      <NavLink to={menu.path} activeClassName={classes.navigation} key={`menu_${menu.id}`}>
+        <ListItem button className={classes.nestedMenuItems}>
+          <ListItemIcon>{menu.icon}</ListItemIcon>
+          <ListItemText inset primary={menu.title} />
+        </ListItem>
+      </NavLink>
+    ));
   }
 
   public render(): React.ReactElement<SideBar> {
@@ -54,43 +108,14 @@ class SideBar extends React.Component<ISidebarProps, any> {
       >
         <div className={classes.toolbar}>
           <Typography variant='title' color='primary' noWrap>
-            Material Magic
+            {labels.appTitle}
           </Typography>
           <IconButton onClick={() => this.props.handleDrawerClose()}>
             {theme && theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
         <Divider />
-        <List>
-          <div>
-            {menuItems && menuItems.map((menu) =>
-              <NavLink to='/dashboard/home' activeClassName={classes.navigation} key={`menu_${menu.id}`}>
-              <ListItem button className={classes.menuItem}>
-                <ListItemIcon>
-                  <StarBorder />
-                </ListItemIcon>
-                <ListItemText className={classes.menuItemList} primary={menu.title} />
-              </ListItem>
-            </NavLink>)}
-              <ListItem button className={classes.menuItem} onClick={this.handleClick}>
-                <ListItemIcon>
-                  <StarBorder />
-                </ListItemIcon>
-                <ListItemText className={classes.menuItemList} primary='Widgets' />
-                {this.state.open ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              <Collapse in={this.state.open} timeout='auto' unmountOnExit>
-                <List component='div' disablePadding>
-                  <ListItem button className={classes.nested}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText inset primary='Starred' />
-                  </ListItem>
-                </List>
-              </Collapse>
-          </div>
-        </List>
+        {this.renderNavigationMenu()}
         <Divider />
       </Drawer>
     );
