@@ -39,6 +39,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
                 <Route exact path='/dashboard/home' component={Home} />
                 <Route exact path='/dashboard/charts' component={Charts} />
                 <Route exact path='/dashboard/buttons' component={Buttons} />
+                <Route exact path='/dashboard/widgets/stats' component={Home} />
                 <Redirect path='/dashboard' to='/dashboard/home' />
               </Switch>
             </div>
