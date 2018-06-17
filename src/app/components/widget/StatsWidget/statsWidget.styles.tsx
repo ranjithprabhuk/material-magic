@@ -13,12 +13,12 @@ export const statsWidgetStyles = (theme: Theme): any => ({
   },
   statContent: {
     padding: 12,
-    transition: theme.transitions.create(['margin'], {
-      easing: theme.transitions.easing.sharp,
+    transition: theme.transitions.create(['transform'], {
+      easing: theme.transitions.easing.easeIn,
       duration: theme.transitions.duration.enteringScreen,
     }),
     '&:hover': {
-      margin: 2,
+      transform: 'scale(1.05)',
     },
   },
   statValue: {
