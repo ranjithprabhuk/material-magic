@@ -34,14 +34,12 @@ export const sideBarStyles = (theme: Theme): any => ({
     borderRadius: 2,
     paddingLeft: 20,
     paddingRight: 3,
-    boxShadow: '1px 2px 3px 1px #eee',
     margin: '6px 0px',
     flexDirection,
   },
   navigation: {
     '& $menuItem, & $nestedMenuItem': {
       background: defineColours(ThemeConfig.primaryColor),
-      boxShadow: '1px 2px 3px 1px #bbb',
       '& $icon, & $title span': {
         color: '#fff',
       },
@@ -50,14 +48,12 @@ export const sideBarStyles = (theme: Theme): any => ({
   nestedMenuList: {
     marginBottom: 6,
     paddingBottom: 6,
-    borderBottom: '1px solid #eee',
   },
   nestedMenuItem: {
     backgroundColor: theme.palette.grey[300],
     borderRadius: 2,
     paddingLeft: 20,
     paddingRight: 3,
-    boxShadow: '1px 2px 3px 1px #eee',
     margin: '6px 0px',
     flexDirection,
     transition: theme.transitions.create('padding', {

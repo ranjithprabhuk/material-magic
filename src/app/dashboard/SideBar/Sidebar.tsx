@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import { Drawer, List, Typography, Divider, IconButton } from '@material-ui/core';
+import { Drawer, List, Typography, Divider, IconButton, Paper } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
@@ -51,15 +51,17 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   public renderMenuItem(menu: IMenuItems, index: number): React.ReactElement<any> {
     const { classes, isSidebarOpen } = this.props;
     const menuItem = (
-      <ListItem
-        button
-        className={classNames(classes.menuItem, menu.isOpen && classes.selectedMenu)}
-        onClick={() => this.handleMenuClick(menu, index)}
-      >
-        <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
-        <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} primary={menu.title} />
-        {menu.children && isSidebarOpen && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
-      </ListItem>
+      <Paper>
+        <ListItem
+          button
+          className={classNames(classes.menuItem, menu.isOpen && classes.selectedMenu)}
+          onClick={() => this.handleMenuClick(menu, index)}
+        >
+          <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
+          <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} primary={menu.title} />
+          {menu.children && isSidebarOpen && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
+        </ListItem>
+      </Paper>
     );
 
     if (menu.children) {
@@ -87,10 +89,12 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
 
     return nestedMenuItems.map(menu => (
       <NavLink to={menu.path} activeClassName={classes.navigation} key={`nested_menu_${menu.id}`}>
-        <ListItem button className={classNames(classes.nestedMenuItem, isSidebarOpen && classes.nestedMenuItemAlignment)}>
-          <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
-          <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} inset primary={menu.title} />
-        </ListItem>
+        <Paper>
+          <ListItem button className={classNames(classes.nestedMenuItem, isSidebarOpen && classes.nestedMenuItemAlignment)}>
+            <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
+            <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} inset primary={menu.title} />
+          </ListItem>
+        </Paper>
       </NavLink>
     ));
   }
