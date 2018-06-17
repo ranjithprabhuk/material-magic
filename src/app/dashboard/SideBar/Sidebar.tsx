@@ -58,7 +58,7 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
       >
         <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
         <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} primary={menu.title} />
-        {menu.children && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
+        {menu.children && isSidebarOpen && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
       </ListItem>
     );
 
