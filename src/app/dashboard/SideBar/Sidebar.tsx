@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import { Drawer, List, Typography, Divider, IconButton } from '@material-ui/core';
+import { Drawer, List, Typography, Divider, IconButton, Paper } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
@@ -49,17 +49,19 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   }
 
   public renderMenuItem(menu: IMenuItems, index: number): React.ReactElement<any> {
-    const { classes } = this.props;
+    const { classes, isSidebarOpen } = this.props;
     const menuItem = (
-      <ListItem
-        button
-        className={classNames(classes.menuItem, menu.isOpen && classes.selectedMenu)}
-        onClick={() => this.handleMenuClick(menu, index)}
-      >
-        <ListItemIcon>{menu.icon}</ListItemIcon>
-        <ListItemText primary={menu.title} />
-        {menu.children && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
-      </ListItem>
+      <Paper>
+        <ListItem
+          button
+          className={classNames(classes.menuItem, menu.isOpen && classes.selectedMenu)}
+          onClick={() => this.handleMenuClick(menu, index)}
+        >
+          <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
+          <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} primary={menu.title} />
+          {menu.children && isSidebarOpen && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
+        </ListItem>
+      </Paper>
     );
 
     if (menu.children) {
@@ -83,34 +85,36 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   }
 
   public renderNestedMenuItems(nestedMenuItems: IMenuItems[]): any {
-    const { classes } = this.props;
+    const { classes, isSidebarOpen } = this.props;
 
     return nestedMenuItems.map(menu => (
-      <NavLink to={menu.path} activeClassName={classes.navigation} key={`menu_${menu.id}`}>
-        <ListItem button className={classes.nestedMenuItems}>
-          <ListItemIcon>{menu.icon}</ListItemIcon>
-          <ListItemText inset primary={menu.title} />
-        </ListItem>
+      <NavLink to={menu.path} activeClassName={classes.navigation} key={`nested_menu_${menu.id}`}>
+        <Paper>
+          <ListItem button className={classNames(classes.nestedMenuItem, isSidebarOpen && classes.nestedMenuItemAlignment)}>
+            <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
+            <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} inset primary={menu.title} />
+          </ListItem>
+        </Paper>
       </NavLink>
     ));
   }
 
   public render(): React.ReactElement<SideBar> {
-    const { classes, theme } = this.props;
+    const { classes, theme, isSidebarOpen, handleDrawerClose } = this.props;
 
     return (
       <Drawer
         variant='permanent'
         classes={{
-          paper: classNames(classes.drawerPaper, !this.props.isOpen && classes.drawerPaperClose),
+          paper: classNames(classes.drawerPaper, !isSidebarOpen && classes.drawerPaperClose),
         }}
-        open={this.props.isOpen}
+        open={isSidebarOpen}
       >
         <div className={classes.toolbar}>
           <Typography variant='title' color='primary' noWrap>
             {labels.appTitle}
           </Typography>
-          <IconButton onClick={() => this.props.handleDrawerClose()}>
+          <IconButton onClick={() => handleDrawerClose()}>
             {theme && theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>

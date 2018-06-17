@@ -9,20 +9,20 @@ import { labels } from '../../../utils/app.constants';
 
 class Header extends React.Component<IHeaderProps, any> {
   public render(): React.ReactElement<Header> {
-    const { classes } = this.props;
+    const { classes, isSidebarOpen } = this.props;
 
     return (
-      <AppBar position='absolute' className={classNames(classes.appBar, this.props.isOpen && classes.appBarShift)}>
-        <Toolbar disableGutters={!this.props.isOpen}>
+      <AppBar position='absolute' className={classNames(classes.appBar, isSidebarOpen && classes.appBarShift)}>
+        <Toolbar disableGutters={!isSidebarOpen} className={classes.toolBar}>
           <IconButton
             color='inherit'
             aria-label='open drawer'
             onClick={() => this.props.handleDrawerOpen()}
-            className={classNames(classes.menuButton, this.props.isOpen && classes.hide)}
+            className={classNames(classes.menuButton, isSidebarOpen && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant='title' color='inherit' noWrap className={classNames(this.props.isOpen && classes.hide)}>
+          <Typography variant='title' color='inherit' noWrap className={classNames(isSidebarOpen && classes.hide)}>
             {labels.appTitle}
           </Typography>
         </Toolbar>

@@ -21,8 +21,8 @@ const StatsWidget: React.SFC<IStatsWidgetProps> = ({
   return (
     <div>
       <Paper square={square}>
-        <Grid container>
-          <Grid item xs={7} style={{ order: isRightAligned ? 1 : 0 }}>
+        <Grid container style={{ flexDirection: isRightAligned ? 'row-reverse' : 'row' }}>
+          <Grid item xs={7}>
             <div className={classes.statContent}>
               <Typography
                 variant='display1'
@@ -34,12 +34,17 @@ const StatsWidget: React.SFC<IStatsWidgetProps> = ({
               >
                 {value}
               </Typography>
-              <Typography variant='subheading' align={isRightAligned ? 'right' : 'left'} className={classes.statTitle}>
+              <Typography
+                noWrap
+                variant='subheading'
+                align={isRightAligned ? 'right' : 'left'}
+                className={classes.statTitle}
+              >
                 {title}
               </Typography>
             </div>
           </Grid>
-          <Grid item xs={5} style={{ order: isRightAligned ? 0 : 1 }}>
+          <Grid item xs={5}>
             <Paper className={classes.icon} style={{ background: backgroundColor }} square={square}>
               {component}
             </Paper>

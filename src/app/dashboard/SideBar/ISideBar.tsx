@@ -2,7 +2,7 @@ import { Theme } from '@material-ui/core';
 
 interface ISidebarOwnProps {
     classes: any;
-    isOpen: boolean;
+    isSidebarOpen: boolean;
     handleDrawerClose: Function;
 }
 interface ISidebarStateProps {

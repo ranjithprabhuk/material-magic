@@ -1,4 +1,6 @@
 import { Theme } from '@material-ui/core';
+import { flexDirection } from '../../theme';
+
 
 export const dashboardStyles = (theme: Theme): any => ({
   root: {
@@ -7,6 +9,7 @@ export const dashboardStyles = (theme: Theme): any => ({
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
+    flexDirection,
   },
   toolbar: {
     display: 'flex',
