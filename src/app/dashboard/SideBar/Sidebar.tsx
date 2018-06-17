@@ -56,8 +56,8 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
         className={classNames(classes.menuItem, menu.isOpen && classes.selectedMenu)}
         onClick={() => this.handleMenuClick(menu, index)}
       >
-        <ListItemIcon>{menu.icon}</ListItemIcon>
-        <ListItemText primary={menu.title} />
+        <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
+        <ListItemText className={classes.title} primary={menu.title} />
         {menu.children && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
       </ListItem>
     );
@@ -88,8 +88,8 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
     return nestedMenuItems.map(menu => (
       <NavLink to={menu.path} activeClassName={classes.navigation} key={`menu_${menu.id}`}>
         <ListItem button className={classes.nestedMenuItems}>
-          <ListItemIcon>{menu.icon}</ListItemIcon>
-          <ListItemText inset primary={menu.title} />
+          <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
+          <ListItemText className={classes.title} inset primary={menu.title} />
         </ListItem>
       </NavLink>
     ));

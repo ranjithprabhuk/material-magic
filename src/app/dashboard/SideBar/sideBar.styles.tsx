@@ -39,11 +39,7 @@ export const sideBarStyles = (theme: Theme): any => ({
     '& $menuItem, & $nestedMenuItems': {
       background: defineColours(ThemeConfig.primaryColor),
       boxShadow: '1px 2px 3px 1px #bbb',
-      transition: theme.transitions.create(['margin', 'border'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      '& $svg, & $span, & $div': {
+      '& $icon, & $title': {
         color: '#fff!important',
       },
     },
@@ -62,5 +58,11 @@ export const sideBarStyles = (theme: Theme): any => ({
   },
   selectedMenu: {
     backgroundColor: theme.palette.grey[400],
+  },
+  icon: {
+    color: theme.palette.grey[800],
+  },
+  title: {
+    color: theme.palette.grey[800],
   },
 });
