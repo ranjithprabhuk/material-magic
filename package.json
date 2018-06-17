@@ -1,6 +1,6 @@
 {
   "name": "material-magic",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Admin Dashboard Project using following stack: Typescript + Webpack + React + Redux + React-Router v4 + Material UI",
   "main": "server.js",
   "license": "MIT",
@@ -20,9 +20,9 @@
     "url": "https://github.com/ranjithprabhuk/material-magic.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/ranjithprabhuk/material-magic/issues"
   },
-  "homepage": "",
+  "homepage": "https://material-magic-dashboard.herokuapp.com",
   "jest": {
     "moduleFileExtensions": [
       "ts",
