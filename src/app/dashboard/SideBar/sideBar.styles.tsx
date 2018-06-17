@@ -60,6 +60,10 @@ export const sideBarStyles = (theme: Theme): any => ({
     boxShadow: '1px 2px 3px 1px #eee',
     margin: '6px 0px',
     flexDirection,
+    transition: theme.transitions.create('padding', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
   },
   nestedMenuItemAlignment: {
     paddingLeft: theme.direction === 'ltr' ? 30 : 0,
