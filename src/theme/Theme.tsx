@@ -1,16 +1,5 @@
 import { createMuiTheme, Theme, Color } from '@material-ui/core';
-import { blue, pink, orange, red } from '@material-ui/core/colors';
-import { IThemeConfig } from './IThemeConfig';
-
-export const ThemeConfig: IThemeConfig = {
-  isGradientEnabled: true,
-  primaryColor: blue,
-  secondaryColor: pink,
-  warningColor: orange,
-  dangerColor: red,
-  direction: 'ltr',
-  drawerWidth: 240,
-};
+import { ThemeConfig } from './ThemeConfig';
 
 export const flexDirection = ThemeConfig.direction === 'ltr' ? 'row' : 'row-reverse';
 
