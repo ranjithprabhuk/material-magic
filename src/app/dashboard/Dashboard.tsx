@@ -5,7 +5,7 @@ import { IDashboardProps, IDashboardState } from './IDashboard';
 import Home from '../home';
 import Charts from '../charts';
 import Buttons from '../buttons';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Sidebar from './SideBar';
 import Header from './Header';
 
@@ -35,9 +35,12 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
         <main className={classes.content}>
           <div className={classes.toolbar}>
             <div style={{ width: '100%' }}>
-              <Route exact path='/dashboard/home' component={Home} />
-              <Route exact path='/dashboard/charts' component={Charts} />
-              <Route exact path='/dashboard/buttons' component={Buttons} />
+              <Switch>
+                <Route exact path='/dashboard/home' component={Home} />
+                <Route exact path='/dashboard/charts' component={Charts} />
+                <Route exact path='/dashboard/buttons' component={Buttons} />
+                <Redirect path='/dashboard' to='/dashboard/home' />
+              </Switch>
             </div>
           </div>
         </main>
