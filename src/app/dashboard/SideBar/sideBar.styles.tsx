@@ -34,13 +34,14 @@ export const sideBarStyles = (theme: Theme): any => ({
     paddingLeft: 20,
     boxShadow: '1px 2px 3px 1px #eee',
     margin: '6px 0px',
+    flexDirection: theme.direction === 'ltr' ? 'row' : 'row-reverse',
   },
   navigation: {
     '& $menuItem, & $nestedMenuItems': {
       background: defineColours(ThemeConfig.primaryColor),
       boxShadow: '1px 2px 3px 1px #bbb',
-      '& $icon, & $title': {
-        color: '#fff!important',
+      '& $icon, & $title span': {
+        color: '#fff',
       },
     },
   },
@@ -55,14 +56,22 @@ export const sideBarStyles = (theme: Theme): any => ({
     paddingLeft: 20,
     boxShadow: '1px 2px 3px 1px #eee',
     margin: '6px 0px',
+    flexDirection: theme.direction === 'ltr' ? 'row' : 'row-reverse',
   },
   selectedMenu: {
     backgroundColor: theme.palette.grey[400],
   },
   icon: {
     color: theme.palette.grey[800],
+    textAlign: theme.direction === 'ltr' ? 'left' : 'right',
   },
   title: {
-    color: theme.palette.grey[800],
+    '& span': {
+      color: theme.palette.grey[800],
+    },
+    textAlign: theme.direction === 'ltr' ? 'left' : 'right',
+  },
+  displayNone: {
+    display: 'none',
   },
 });

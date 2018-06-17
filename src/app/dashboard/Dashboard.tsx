@@ -30,8 +30,8 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
 
     return (
       <div className={classes.root}>
-        <Header isOpen={this.state.open} handleDrawerOpen={this.handleDrawerOpen} />
-        <Sidebar isOpen={this.state.open} handleDrawerClose={this.handleDrawerClose} />
+        <Header isSidebarOpen={this.state.open} handleDrawerOpen={this.handleDrawerOpen} />
+        <Sidebar isSidebarOpen={this.state.open} handleDrawerClose={this.handleDrawerClose} />
         <main className={classes.content}>
           <div className={classes.toolbar}>
             <div style={{ width: '100%' }}>

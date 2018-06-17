@@ -49,7 +49,7 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   }
 
   public renderMenuItem(menu: IMenuItems, index: number): React.ReactElement<any> {
-    const { classes } = this.props;
+    const { classes, isSidebarOpen } = this.props;
     const menuItem = (
       <ListItem
         button
@@ -57,7 +57,7 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
         onClick={() => this.handleMenuClick(menu, index)}
       >
         <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
-        <ListItemText className={classes.title} primary={menu.title} />
+        <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} primary={menu.title} />
         {menu.children && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
       </ListItem>
     );
@@ -83,34 +83,34 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   }
 
   public renderNestedMenuItems(nestedMenuItems: IMenuItems[]): any {
-    const { classes } = this.props;
+    const { classes, isSidebarOpen } = this.props;
 
     return nestedMenuItems.map(menu => (
       <NavLink to={menu.path} activeClassName={classes.navigation} key={`menu_${menu.id}`}>
         <ListItem button className={classes.nestedMenuItems}>
           <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
-          <ListItemText className={classes.title} inset primary={menu.title} />
+          <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} inset primary={menu.title} />
         </ListItem>
       </NavLink>
     ));
   }
 
   public render(): React.ReactElement<SideBar> {
-    const { classes, theme } = this.props;
+    const { classes, theme, isSidebarOpen, handleDrawerClose } = this.props;
 
     return (
       <Drawer
         variant='permanent'
         classes={{
-          paper: classNames(classes.drawerPaper, !this.props.isOpen && classes.drawerPaperClose),
+          paper: classNames(classes.drawerPaper, !isSidebarOpen && classes.drawerPaperClose),
         }}
-        open={this.props.isOpen}
+        open={isSidebarOpen}
       >
         <div className={classes.toolbar}>
           <Typography variant='title' color='primary' noWrap>
             {labels.appTitle}
           </Typography>
-          <IconButton onClick={() => this.props.handleDrawerClose()}>
+          <IconButton onClick={() => handleDrawerClose()}>
             {theme && theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>

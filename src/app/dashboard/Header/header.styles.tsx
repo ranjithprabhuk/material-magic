@@ -12,7 +12,8 @@ export const headerStyles = (theme: Theme): any => ({
     }),
   },
   appBarShift: {
-    marginLeft: drawerWidth,
+    marginLeft: theme.direction === 'ltr' ? drawerWidth : 0,
+    marginRight: theme.direction === 'rtl' ? drawerWidth : 0,
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,

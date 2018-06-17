@@ -2,7 +2,7 @@ import { Theme } from '@material-ui/core';
 
 interface IHeaderOwnProps {
     classes: any;
-    isOpen: boolean;
+    isSidebarOpen: boolean;
     handleDrawerOpen: Function;
 }
 interface IHeaderStateProps {
