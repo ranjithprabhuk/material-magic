@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import { homeStyles } from './home.styles';
 import { IHomeProps, IHomeState } from './IHome';
-import StatsWidget from '../components/widget';
+import { StatsWidget, CollapsiblePanel } from '../components';
 import StarIcon from '@material-ui/icons/Star';
 import InboxIcon from '@material-ui/icons/Inbox';
 import { defineColours, ThemeConfig } from '../../theme';
@@ -50,6 +50,11 @@ class Home extends React.Component<IHomeProps, IHomeState> {
               textColor={defineColours(ThemeConfig.dangerColor, true)}
               backgroundColor={defineColours(ThemeConfig.dangerColor)}
             />
+          </Grid>
+        </Grid>
+        <Grid container spacing={8}>
+          <Grid item xs={12} sm={6} md={3}>
+            <CollapsiblePanel />
           </Grid>
         </Grid>
       </div>
