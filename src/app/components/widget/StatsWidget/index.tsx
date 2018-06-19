@@ -1,2 +1,1 @@
-export { default } from './StatsWidget';
-export * from './StatsWidget';
+export { default as StatsWidget } from './StatsWidget';
