@@ -1,28 +1,17 @@
 import * as React from 'react';
 import { withStyles, Theme } from '@material-ui/core/styles';
 import * as classnames from 'classnames';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import {Card, Typography} from '@material-ui/core';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-// import Typography from '@material-ui/core/Typography';
-import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const styles = (theme: Theme) => ({
-  card: {
-    maxWidth: '100%',
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
   actions: {
     display: 'flex',
+    padding: '0px 12px',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -34,9 +23,6 @@ const styles = (theme: Theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
 });
 
 class CollapsiblePanel extends React.Component<any, any> {
@@ -47,18 +33,16 @@ class CollapsiblePanel extends React.Component<any, any> {
   }
 
   public render(): any {
-    const { classes } = this.props;
+    const { classes, header } = this.props;
 
     return (
       <div>
-        <Card className={classes.card}>
+        <Card>
           <CardActions className={classes.actions} disableActionSpacing>
             <IconButton aria-label='Add to favorites'>
               <FavoriteIcon />
             </IconButton>
-            <IconButton aria-label='Share'>
-              <ShareIcon />
-            </IconButton>
+            <Typography paragraph variant='body2'>{header}</Typography>
             <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
@@ -71,9 +55,7 @@ class CollapsiblePanel extends React.Component<any, any> {
             </IconButton>
           </CardActions>
           <Collapse in={this.state.expanded} timeout='auto' unmountOnExit>
-            <CardContent>
-              {this.props.children}
-            </CardContent>
+            {this.props.children}
           </Collapse>
         </Card>
       </div>
