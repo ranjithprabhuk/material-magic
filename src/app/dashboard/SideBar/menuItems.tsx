@@ -1,41 +1,44 @@
 import * as React from 'react';
 import { IMenuItems } from './ISideBar';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import StarIcon from '@material-ui/icons/Star';
-import ReportIcon from '@material-ui/icons/Report';
+import {
+  Drafts,
+  Inbox,
+  Report,
+  SentimentVerySatisfied,
+  Star,
+} from '@material-ui/icons';
 
 export const menuItems: Array<IMenuItems> = [
   {
     id: 1,
     title: 'Dashboard',
     path: '/dashboard/home',
-    icon: <StarIcon />,
+    icon: <Star />,
   },
   {
     id: 2,
     title: 'Widgets',
     path: '',
-    icon: <DraftsIcon />,
+    icon: <Drafts />,
     isOpen: false,
     children: [
       {
         id: 21,
         title: 'Stats Widget',
         path: '/dashboard/widgets/stats',
-        icon: <ReportIcon />,
+        icon: <Report />,
       },
       {
         id: 22,
         title: 'Cool Widget',
         path: '/dashboard/widgets/coolstats',
-        icon: <ReportIcon />,
+        icon: <Report />,
       },
       {
         id: 23,
         title: 'More Widget',
         path: '/dashboard/widgets/morestats',
-        icon: <ReportIcon />,
+        icon: <Report />,
       },
     ],
   },
@@ -43,12 +46,18 @@ export const menuItems: Array<IMenuItems> = [
     id: 3,
     title: 'Charts',
     path: '/dashboard/charts',
-    icon: <ReportIcon />,
+    icon: <Report />,
   },
   {
     id: 4,
     title: 'Buttons',
     path: '/dashboard/buttons',
-    icon: <InboxIcon />,
+    icon: <Inbox />,
+  },
+  {
+    id: 5,
+    title: 'Icons',
+    path: '/dashboard/icons',
+    icon: <SentimentVerySatisfied />,
   },
 ];
