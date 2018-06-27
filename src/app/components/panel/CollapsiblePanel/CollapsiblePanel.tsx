@@ -27,6 +27,12 @@ const styles = (theme: Theme) => ({
 class CollapsiblePanel extends React.Component<any, any> {
   public state: any = { expanded: false };
 
+  public componentDidMount(): void {
+    if (this.props.autoOpen) {
+      this.handleExpandClick();
+    }
+  }
+
   public handleExpandClick = () => {
     this.setState({ expanded: !this.state.expanded });
   }
