@@ -7,6 +7,57 @@ import { Paper, Divider, Typography, CardContent } from '@material-ui/core';
 import { Star } from '@material-ui/icons';
 import { CollapsiblePanel } from '../components';
 
+const iconColorProps = [
+    {
+        title: 'Default',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Primary',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Secondary',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Action',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Error',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Disabled',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Inherit',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Default',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Default',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Default',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Default',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+    {
+        title: 'Default',
+        icon: <Star style={{fontSize: 50}} />,
+    },
+];
+
 class Icons extends React.Component<IIconsProps, IIconsState> {
     public render(): React.ReactElement<Icons> {
         const { classes } = this.props;
@@ -16,92 +67,17 @@ class Icons extends React.Component<IIconsProps, IIconsState> {
                 <Grid container spacing={8}>
                     <Grid item xs={12}>
                         <CollapsiblePanel header='Icon' autoOpen>
-                            <CardContent>
+                            <CardContent style={{paddingBottom: 0}}>
                                 <Grid container>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Default Icon </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star color='primary' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Primary Icon </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star color='secondary' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Secondary Icon </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star color='action' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Action </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star color='error' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Error </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star color='disabled' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Disabled </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center', color: '#f00'}}>
-                                            <Star color='inherit' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Inherit </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star color='disabled' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Disabled </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star color='error' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Error </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star color='disabled' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Disabled </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center', color: '#f00'}}>
-                                            <Star color='inherit' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Inherit </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3} md={2}>
-                                        <Paper elevation={0} style={{textAlign: 'center'}}>
-                                            <Star color='disabled' style={{fontSize: 50}} />
-                                            <Divider style={{margin: '5px 10px'}} />
-                                            <Typography> Disabled </Typography>
-                                        </Paper>
-                                    </Grid>
+                                    {iconColorProps && iconColorProps.map(iconProp => (
+                                        <Grid className={classes.iconGrid} item xs={6} sm={3} md={2}>
+                                            <Paper elevation={0}>
+                                                {iconProp.icon}
+                                                <Divider style={{margin: '5px 10px'}} />
+                                                <Typography> {iconProp.title} </Typography>
+                                            </Paper>
+                                        </Grid>
+                                    ))}
                                 </Grid>
                             </CardContent>
                         </CollapsiblePanel>

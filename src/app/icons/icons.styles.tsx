@@ -4,9 +4,11 @@ export const iconStyles = (theme: Theme): any => ({
   root: {
     flexGrow: 1,
   },
-  paper: {
-    padding: theme.spacing.unit * 2,
+  iconContainer: {
+    paddingBottom: 15,
+  },
+  iconGrid: {
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    marginBottom: 15,
   },
 });
