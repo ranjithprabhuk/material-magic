@@ -6,6 +6,7 @@ import Home from '../home';
 import Charts from '../charts';
 import Buttons from '../buttons';
 import Icons from '../icons';
+import Forms from '../forms';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Sidebar from './SideBar';
 import Header from './Header';
@@ -42,7 +43,8 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
                 <Route exact path='/dashboard/charts' component={Charts} />
                 <Route exact path='/dashboard/buttons' component={Buttons} />
                 <Route exact path='/dashboard/icons' component={Icons} />
-                <Route exact path='/dashboard/widgets/stats' component={Home} />
+                <Route exact path='/dashboard/widgets' component={Home} />
+                <Route exact path='/dashboard/form-elements/forms' component={Forms} />
                 <Redirect path='/dashboard' to='/dashboard/home' />
               </Switch>
             </div>
