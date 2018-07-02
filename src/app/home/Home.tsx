@@ -54,7 +54,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         </Grid>
         <Grid container spacing={8}>
           <Grid item xs={12} sm={6} md={6}>
-            <CollapsiblePanel header='Some Title'>
+            <CollapsiblePanel header='Some Title' className={classes.panelHeader}>
               <CardContent>
                 <Typography paragraph variant='body2'>
                   Method:
