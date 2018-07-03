@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, CardContent, Typography } from '@material-ui/core';
-import { homeStyles } from './home.styles';
-import { IHomeProps, IHomeState } from './IHome';
+import { homeStyles } from './forms.styles';
+import { IHomeProps, IHomeState } from './IForms';
 import { StatsWidget, CollapsiblePanel } from '../components';
 import StarIcon from '@material-ui/icons/Star';
 import InboxIcon from '@material-ui/icons/Inbox';
 import { defineColours, ThemeConfig } from '../../theme';
 
-class Home extends React.Component<IHomeProps, IHomeState> {
-  public render(): React.ReactElement<Home> {
+class Forms extends React.Component<IHomeProps, IHomeState> {
+  public render(): React.ReactElement<Forms> {
     const { classes } = this.props;
 
     return (
@@ -54,7 +54,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         </Grid>
         <Grid container spacing={8}>
           <Grid item xs={12} sm={6} md={6}>
-            <CollapsiblePanel header='Some Title' className={classes.panelHeader}>
+            <CollapsiblePanel header='Some Title'>
               <CardContent>
                 <Typography paragraph variant='body2'>
                   Method:
@@ -90,4 +90,4 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   }
 }
 
-export default withStyles(homeStyles, {withTheme: true})(Home);
+export default withStyles(homeStyles, {withTheme: true})(Forms);
