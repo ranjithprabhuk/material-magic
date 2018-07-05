@@ -6,7 +6,7 @@ import {
   Report,
   SentimentVerySatisfied,
   Star,
-  TextFields,
+  SettingsInputComponent,
   Dashboard,
   PermContactCalendar,
 } from '@material-ui/icons';
@@ -46,7 +46,7 @@ export const menuItems: Array<IMenuItems> = [
     id: 6,
     title: 'Form Elements',
     path: '',
-    icon: <TextFields />,
+    icon: <SettingsInputComponent />,
     isOpen: false,
     children: [
       {
@@ -59,19 +59,19 @@ export const menuItems: Array<IMenuItems> = [
         id: 62,
         title: 'Text Fields',
         path: '/dashboard/form-elements/text-fields',
-        icon: <TextFields />,
+        icon: <SettingsInputComponent />,
       },
       {
         id: 63,
         title: 'Selection Controls',
         path: '/dashboard/form-elements/selection-controls',
-        icon: <TextFields />,
+        icon: <SettingsInputComponent />,
       },
       {
         id: 64,
         title: 'Dropdown Select',
         path: '/dashboard/form-elements/forms',
-        icon: <TextFields />,
+        icon: <SettingsInputComponent />,
       },
       {
         id: 65,
