@@ -5,13 +5,14 @@ import {Card, Typography} from '@material-ui/core';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { flexDirection } from '../../../../theme';
 
-const styles = (theme: Theme) => ({
+const styles = (theme: Theme): any => ({
   actions: {
     display: 'flex',
     padding: '0px 12px',
+    flexDirection,
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -28,28 +29,32 @@ const styles = (theme: Theme) => ({
 class CollapsiblePanel extends React.Component<any, any> {
   public state: any = { expanded: false };
 
+  public componentDidMount(): void {
+    if (this.props.autoOpen) {
+      this.handleExpandClick();
+    }
+  }
+
   public handleExpandClick = () => {
     this.setState({ expanded: !this.state.expanded });
   }
 
   public render(): any {
-    const { classes, header } = this.props;
+    const { classes, header, customheader, className } = this.props;
+    console.log('cjeckdfd', this.props);
 
     return (
       <div>
         <Card>
-          <CardActions className={classes.actions} disableActionSpacing>
-            <IconButton aria-label='Add to favorites'>
-              <FavoriteIcon />
-            </IconButton>
-            <Typography paragraph variant='body2'>{header}</Typography>
+          <CardActions className={classnames(classes.actions, className)} disableActionSpacing>
+            {customheader ? customheader : <Typography variant='body2'>{header}</Typography>}
             <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
               })}
               onClick={this.handleExpandClick}
               aria-expanded={this.state.expanded}
-              aria-label='Show more'
+              aria-label={this.state.expand ? 'Hide' : 'Show More'}
             >
               <ExpandMoreIcon />
             </IconButton>

@@ -1,54 +1,84 @@
 import * as React from 'react';
 import { IMenuItems } from './ISideBar';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import StarIcon from '@material-ui/icons/Star';
-import ReportIcon from '@material-ui/icons/Report';
+import {
+  Drafts,
+  Inbox,
+  Report,
+  SentimentVerySatisfied,
+  Star,
+  TextFields,
+  Dashboard,
+  PermContactCalendar,
+} from '@material-ui/icons';
 
 export const menuItems: Array<IMenuItems> = [
   {
     id: 1,
     title: 'Dashboard',
     path: '/dashboard/home',
-    icon: <StarIcon />,
+    icon: <Dashboard />,
   },
   {
     id: 2,
     title: 'Widgets',
-    path: '',
-    icon: <DraftsIcon />,
-    isOpen: false,
-    children: [
-      {
-        id: 21,
-        title: 'Stats Widget',
-        path: '/dashboard/widgets/stats',
-        icon: <ReportIcon />,
-      },
-      {
-        id: 22,
-        title: 'Cool Widget',
-        path: '/dashboard/widgets/coolstats',
-        icon: <ReportIcon />,
-      },
-      {
-        id: 23,
-        title: 'More Widget',
-        path: '/dashboard/widgets/morestats',
-        icon: <ReportIcon />,
-      },
-    ],
+    path: 'widgets',
+    icon: <Star />,
   },
   {
     id: 3,
     title: 'Charts',
     path: '/dashboard/charts',
-    icon: <ReportIcon />,
+    icon: <Report />,
   },
   {
     id: 4,
     title: 'Buttons',
     path: '/dashboard/buttons',
-    icon: <InboxIcon />,
+    icon: <Inbox />,
+  },
+  {
+    id: 5,
+    title: 'Icons',
+    path: '/dashboard/icons',
+    icon: <SentimentVerySatisfied />,
+  },
+  {
+    id: 6,
+    title: 'Form Elements',
+    path: '',
+    icon: <TextFields />,
+    isOpen: false,
+    children: [
+      {
+        id: 61,
+        title: 'Forms',
+        path: '/dashboard/form-elements/forms',
+        icon: <Drafts />,
+      },
+      {
+        id: 62,
+        title: 'Text Fields',
+        path: '/dashboard/form-elements/text-fields',
+        icon: <TextFields />,
+      },
+      {
+        id: 63,
+        title: 'Selection Controls',
+        path: '/dashboard/form-elements/selection-controls',
+        icon: <TextFields />,
+      },
+      {
+        id: 64,
+        title: 'Dropdown Select',
+        path: '/dashboard/form-elements/forms',
+        icon: <TextFields />,
+      },
+      {
+        id: 65,
+        title: 'Date Time Pickers',
+        path: '/dashboard/form-elements/forms',
+        icon: <PermContactCalendar />,
+      },
+    ],
   },
 ];

@@ -25,5 +25,5 @@ ReactDOM.render(
             </ConnectedRouter>
         </MuiThemeProvider>
     </Provider>,
-    document.getElementById('app'),
+    document.getElementById('material-magic'),
 );
