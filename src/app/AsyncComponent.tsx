@@ -1,15 +1,35 @@
 import * as React from 'react';
-import { ThreeSixty } from '@material-ui/icons';
+import { Theme, withStyles, CircularProgress } from '@material-ui/core';
 
-export interface IAsyncComponentProps {
+interface IAsyncComponentOwnProps {
   moduleProvider: any;
+  classes: any;
 }
 
-export interface IAsyncComponentState {
+interface IAsyncComponentState {
   Component: any;
 }
 
-export default class  extends React.PureComponent<IAsyncComponentProps, IAsyncComponentState> {
+interface IAsyncComponentStateProps {
+  theme?: Theme;
+}
+
+type IAsyncComponentProps = IAsyncComponentOwnProps & IAsyncComponentStateProps;
+
+export const styles = (theme: Theme): any => ({
+  loader: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100vw',
+    height: '100vh',
+  },
+  progress: {
+    margin: theme.spacing.unit * 2,
+  },
+});
+
+class AsyncComponent extends React.PureComponent<IAsyncComponentProps, IAsyncComponentState> {
   constructor(props: IAsyncComponentProps) {
     super(props);
     this.state = {
@@ -18,18 +38,24 @@ export default class  extends React.PureComponent<IAsyncComponentProps, IAsyncCo
   }
 
   public componentWillMount(): any {
-    if(!this.state.Component) {
-      this.props.moduleProvider().then((data:any) => this.setState({Component: data.default}));
+    if (!this.state.Component) {
+        this.props.moduleProvider().then((data: any) => this.setState({ Component: data.default }));
     }
+  }
+
+  public renderLoader(): any {
+    const {classes} = this.props;
+    return (
+      <div className={classes.loader}>
+        <CircularProgress className={classes.progress} />
+      </div>
+    );
   }
 
   public render(): any {
     const { Component } = this.state;
-
-    return (
-      <div>
-        {Component ? <Component /> : <ThreeSixty style={{ fontSize: 50}} />}
-      </div>
-    );
+    return Component ? <Component /> : this.renderLoader();
   }
 }
+
+export default withStyles(styles)(AsyncComponent);
