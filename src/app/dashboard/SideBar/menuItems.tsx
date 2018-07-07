@@ -1,15 +1,9 @@
 import * as React from 'react';
 import { IMenuItems } from './ISideBar';
-import {
-  Drafts,
-  Inbox,
-  Report,
-  SentimentVerySatisfied,
-  Star,
-  SettingsInputComponent,
-  Dashboard,
-  PermContactCalendar,
-} from '@material-ui/icons';
+import Drafts from '@material-ui/icons/Drafts';
+import Dashboard from '@material-ui/icons/Dashboard';
+import Star from '@material-ui/icons/Star';
+import Report from '@material-ui/icons/Report';
 
 export const menuItems: Array<IMenuItems> = [
   {
@@ -34,19 +28,19 @@ export const menuItems: Array<IMenuItems> = [
     id: 4,
     title: 'Buttons',
     path: '/dashboard/buttons',
-    icon: <Inbox />,
+    icon: <Star />,
   },
   {
     id: 5,
     title: 'Icons',
     path: '/dashboard/icons',
-    icon: <SentimentVerySatisfied />,
+    icon: <Dashboard />,
   },
   {
     id: 6,
     title: 'Form Elements',
     path: '',
-    icon: <SettingsInputComponent />,
+    icon: <Dashboard />,
     isOpen: false,
     children: [
       {
@@ -59,25 +53,25 @@ export const menuItems: Array<IMenuItems> = [
         id: 62,
         title: 'Text Fields',
         path: '/dashboard/form-elements/text-fields',
-        icon: <SettingsInputComponent />,
+        icon: <Dashboard />,
       },
       {
         id: 63,
         title: 'Selection Controls',
         path: '/dashboard/form-elements/selection-controls',
-        icon: <SettingsInputComponent />,
+        icon: <Dashboard />,
       },
       {
         id: 64,
         title: 'Dropdown Select',
         path: '/dashboard/form-elements/forms',
-        icon: <SettingsInputComponent />,
+        icon: <Dashboard />,
       },
       {
         id: 65,
         title: 'Date Time Pickers',
         path: '/dashboard/form-elements/forms',
-        icon: <PermContactCalendar />,
+        icon: <Dashboard />,
       },
     ],
   },
