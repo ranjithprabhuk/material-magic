@@ -6,8 +6,8 @@ import AsyncComponent from './AsyncComponent';
 
 const NoMatch = () => <h1 style={{ color: 'red' }}>Page not found!</h1>;
 
-const login = () => import(/* webpackChunkName: "home" */ './login');
-const dashboard = () => import(/* webpackChunkName: "home" */ './dashboard');
+const login = () => import('./login');
+const dashboard = () => import('./dashboard');
 
 export class App extends React.Component<object, object> {
   public render(): React.ReactElement<App> {

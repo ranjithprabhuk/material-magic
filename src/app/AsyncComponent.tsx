@@ -18,11 +18,8 @@ export default class  extends React.PureComponent<IAsyncComponentProps, IAsyncCo
   }
 
   public componentWillMount(): any {
-    console.log('conponentnt', this);
     if(!this.state.Component) {
-      this.props.moduleProvider().then((data:any) => {
-        console.log('what data', data, data.Component);
-      });
+      this.props.moduleProvider().then((data:any) => this.setState({Component: data.default}));
     }
   }
 
