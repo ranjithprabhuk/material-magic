@@ -6,6 +6,7 @@ import { ILoginProps, ILoginState } from './ILogin';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Lock from '@material-ui/icons/Lock';
 import Star from '@material-ui/icons/Star';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component<ILoginProps, ILoginState> {
   public render(): React.ReactElement<Home> {
@@ -37,12 +38,16 @@ class Home extends React.Component<ILoginProps, ILoginState> {
               </Grid>
             </Grid>
             <Grid className={classes.loginButtonContainer} container spacing={8} justify='space-around'>
-              <Button variant='contained' color='primary'>
-                Sign In
-              </Button>
-              <Button variant='contained' color='secondary'>
-                Sign Up
-              </Button>
+              <Link to='/dashboard'>
+                <Button variant='contained' color='primary'>
+                  Sign In
+                </Button>
+              </Link>
+              <Link to='/signup'>
+                <Button variant='contained' color='secondary'>
+                  Sign Up
+                </Button>
+              </Link>
             </Grid>
             <Grid container spacing={8} justify='center'>
               <Typography className={classes.socialLoginLabel}> Sign in with: </Typography>
