@@ -8,6 +8,7 @@ import Header from './Header';
 import AsyncComponent from '../AsyncComponent';
 
 const home = () => import('../home');
+const widgets = () => import('../widgets');
 const charts = () => import('../charts');
 const buttons = () => import('../buttons');
 const icons = () => import('../icons');
@@ -43,10 +44,10 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
             <div style={{ width: '100%' }}>
               <Switch>
                 <Route exact path='/dashboard/home' component={() => <AsyncComponent moduleProvider={home} />} />
+                <Route exact path='/dashboard/widgets' component={() => <AsyncComponent moduleProvider={widgets} />} />
                 <Route exact path='/dashboard/charts' component={() => <AsyncComponent moduleProvider={charts} />} />
                 <Route exact path='/dashboard/buttons' component={() => <AsyncComponent moduleProvider={buttons} />} />
                 <Route exact path='/dashboard/icons' component={() => <AsyncComponent moduleProvider={icons} />} />
-                <Route exact path='/dashboard/widgets' component={() => <AsyncComponent moduleProvider={home} />} />
                 <Route exact path='/dashboard/form-elements/forms' component={() => <AsyncComponent moduleProvider={forms} />} />
                 <Route exact path='/dashboard/form-elements/text-fields' component={() => <AsyncComponent moduleProvider={textFields} />} />
                 <Redirect path='/dashboard' to='/dashboard/home' />

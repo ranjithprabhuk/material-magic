@@ -18,7 +18,7 @@ export const menuItems: Array<IMenuItems> = [
   {
     id: 2,
     title: 'Widgets',
-    path: 'widgets',
+    path: '/dashboard/widgets',
     icon: <Widgets />,
   },
   {
