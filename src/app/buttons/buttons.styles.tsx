@@ -8,7 +8,7 @@ export const buttonStyles = (theme: Theme): any => ({
     justifyContent: 'center',
   },
   panelHeader: {
-    backgroundColor: '#eee',
+    backgroundColor: theme.palette.grey[100],
   },
   button: {
     margin: theme.spacing.unit,
