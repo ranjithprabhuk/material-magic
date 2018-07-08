@@ -2,8 +2,11 @@ import * as React from 'react';
 import { IMenuItems } from './ISideBar';
 import Drafts from '@material-ui/icons/Drafts';
 import Dashboard from '@material-ui/icons/Dashboard';
-import Star from '@material-ui/icons/Star';
-import Report from '@material-ui/icons/Report';
+import TagFaces from '@material-ui/icons/TagFaces';
+import PieChart from '@material-ui/icons/PieChart';
+import Widgets from '@material-ui/icons/Widgets';
+import Crop169 from '@material-ui/icons/Crop169';
+import Description from '@material-ui/icons/Description';
 
 export const menuItems: Array<IMenuItems> = [
   {
@@ -16,31 +19,31 @@ export const menuItems: Array<IMenuItems> = [
     id: 2,
     title: 'Widgets',
     path: 'widgets',
-    icon: <Star />,
+    icon: <Widgets />,
   },
   {
     id: 3,
     title: 'Charts',
     path: '/dashboard/charts',
-    icon: <Report />,
+    icon: <PieChart />,
   },
   {
     id: 4,
     title: 'Buttons',
     path: '/dashboard/buttons',
-    icon: <Star />,
+    icon: <Crop169 />,
   },
   {
     id: 5,
     title: 'Icons',
     path: '/dashboard/icons',
-    icon: <Dashboard />,
+    icon: <TagFaces />,
   },
   {
     id: 6,
     title: 'Form Elements',
     path: '',
-    icon: <Dashboard />,
+    icon: <Description />,
     isOpen: false,
     children: [
       {
