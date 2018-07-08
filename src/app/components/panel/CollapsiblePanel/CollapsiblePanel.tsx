@@ -41,7 +41,6 @@ class CollapsiblePanel extends React.Component<any, any> {
 
   public render(): any {
     const { classes, header, customheader, className } = this.props;
-    console.log('cjeckdfd', this.props);
 
     return (
       <div>

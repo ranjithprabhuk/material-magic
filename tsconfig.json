@@ -11,6 +11,7 @@
     "strictNullChecks": true,
     "outDir": "build",
     "noUnusedLocals": true,
+    "lib": ["es2015", "dom"],
   },
   "exclude": [
     "build",

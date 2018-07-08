@@ -2,14 +2,18 @@ import * as React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { dashboardStyles } from './dashboard.styles';
 import { IDashboardProps, IDashboardState } from './IDashboard';
-import Home from '../home';
-import Charts from '../charts';
-import Buttons from '../buttons';
-import Icons from '../icons';
-import Forms from '../forms';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Sidebar from './SideBar';
 import Header from './Header';
+import AsyncComponent from '../AsyncComponent';
+
+const home = () => import('../home');
+const widgets = () => import('../widgets');
+const charts = () => import('../charts');
+const buttons = () => import('../buttons');
+const icons = () => import('../icons');
+const forms = () => import('../forms');
+const textFields = () => import('../text-fields');
 
 
 class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
@@ -39,12 +43,13 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
           <div className={classes.toolbar}>
             <div style={{ width: '100%' }}>
               <Switch>
-                <Route exact path='/dashboard/home' component={Home} />
-                <Route exact path='/dashboard/charts' component={Charts} />
-                <Route exact path='/dashboard/buttons' component={Buttons} />
-                <Route exact path='/dashboard/icons' component={Icons} />
-                <Route exact path='/dashboard/widgets' component={Home} />
-                <Route exact path='/dashboard/form-elements/forms' component={Forms} />
+                <Route exact path='/dashboard/home' component={() => <AsyncComponent moduleProvider={home} />} />
+                <Route exact path='/dashboard/widgets' component={() => <AsyncComponent moduleProvider={widgets} />} />
+                <Route exact path='/dashboard/charts' component={() => <AsyncComponent moduleProvider={charts} />} />
+                <Route exact path='/dashboard/buttons' component={() => <AsyncComponent moduleProvider={buttons} />} />
+                <Route exact path='/dashboard/icons' component={() => <AsyncComponent moduleProvider={icons} />} />
+                <Route exact path='/dashboard/form-elements/forms' component={() => <AsyncComponent moduleProvider={forms} />} />
+                <Route exact path='/dashboard/form-elements/text-fields' component={() => <AsyncComponent moduleProvider={textFields} />} />
                 <Redirect path='/dashboard' to='/dashboard/home' />
               </Switch>
             </div>

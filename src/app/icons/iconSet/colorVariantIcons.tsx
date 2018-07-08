@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { deepOrange } from '@material-ui/core/colors';
-import { Star } from '@material-ui/icons';
+import Star from '@material-ui/icons/Star';
 import { iconStyle } from '../icons.styles';
 
 export const colorVariantIcons = [

@@ -6,7 +6,6 @@ import { IIconsProps, IIconsState } from './IIcons';
 import { Paper, Divider, Typography, CardContent } from '@material-ui/core';
 import { CollapsiblePanel } from '../components';
 import { colorVariantIcons } from './iconSet/colorVariantIcons';
-import { actionIcons } from './iconSet/actionIcons';
 
 class Icons extends React.Component<IIconsProps, IIconsState> {
     public render(): React.ReactElement<Icons> {
@@ -21,27 +20,10 @@ class Icons extends React.Component<IIconsProps, IIconsState> {
                                 <Grid container className={classes.gridContainer}>
                                     {colorVariantIcons && colorVariantIcons.map((colorVariantIcon, index) => (
                                         <Grid className={classes.iconGrid} item xs={6} sm={3} md={2} key={`color_variant_icon_${index}`}>
-                                            <Paper elevation={0} style={{color: 'reds'}}>
+                                            <Paper elevation={0} style={{color: 'red'}}>
                                                 {colorVariantIcon.icon}
                                                 <Divider style={{margin: '5px 10px'}} />
                                                 <Typography> {colorVariantIcon.title} </Typography>
-                                            </Paper>
-                                        </Grid>
-                                    ))}
-                                </Grid>
-                            </CardContent>
-                        </CollapsiblePanel>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <CollapsiblePanel header='Action Icons' autoOpen>
-                            <CardContent style={{paddingBottom: 0}}>
-                                <Grid container className={classes.gridContainer}>
-                                    {actionIcons && actionIcons.map((actionIcon, index) => (
-                                        <Grid className={classes.iconGrid} item xs={6} sm={3} md={2} key={`material_icon_${index}`}>
-                                            <Paper elevation={0} style={{color: 'reds'}}>
-                                                {actionIcon.icon}
-                                                <Divider style={{margin: '5px 10px'}} />
-                                                <Typography> {actionIcon.title} </Typography>
                                             </Paper>
                                         </Grid>
                                     ))}
