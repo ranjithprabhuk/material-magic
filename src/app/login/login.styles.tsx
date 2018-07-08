@@ -7,18 +7,31 @@ export const loginStyles = (theme: Theme): any => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexGrow: 1,
+    width: '100vw',
+    height: '100vh',
+    background: defineColours(ThemeConfig.primaryColor),
   },
   login: {
     width: '100%',
     maxWidth: '400px',
+    overflow: 'visible',
   },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  socialLoginLabel: {
+    backgroundColor: '#eee',
+    padding: '2px 118px',
+    marginTop: 10,
   },
-  panelHeader: {
-    background: defineColours(ThemeConfig.warningColor, true),
-    color: '#fff',
+  loginButtonContainer: {
+    padding: '30px 5px 20px',
+  },
+  headerIconGrid: {
+    border: '5px solid white',
+    borderRadius: '50%',
+    padding: 0,
+    background: defineColours(ThemeConfig.primaryColor),
+    marginTop: -50,
+  },
+  inputFields: {
+    width: '100%',
   },
 });
