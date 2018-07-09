@@ -17,7 +17,7 @@ class Home extends React.Component<ILoginProps, ILoginState> {
         <Card className={classes.login}>
           <Grid container spacing={8} justify='center' alignItems='flex-end'>
             <Grid item className={classes.headerIconGrid}>
-              <AccountCircle style={{fontSize: 100}} />
+              <AccountCircle className={classes.headerIcon} />
             </Grid>
           </Grid>
           <CardContent>

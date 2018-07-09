@@ -20,6 +20,9 @@ export const headerStyles = (theme: Theme): any => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  appTitle: {
+    flex: theme.direction === 'ltr' ? 1 : 'none',
+  },
   toolBar: {
     flexDirection,
   },
@@ -29,5 +32,8 @@ export const headerStyles = (theme: Theme): any => ({
   },
   hide: {
     display: 'none',
+  },
+  containerRight: {
+    flex: theme.direction === 'rtl' ? 1 : 'none',
   },
 });
