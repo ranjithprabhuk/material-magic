@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import AsyncComponent from './AsyncComponent';
-// import Login from './login';
-// import Dashboard from './dashboard';
 
 const NoMatch = () => <h1 style={{ color: 'red' }}>Page not found!</h1>;
 
