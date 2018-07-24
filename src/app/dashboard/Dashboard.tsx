@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { dashboardStyles } from './dashboard.styles';
 import { IDashboardProps, IDashboardState } from './IDashboard';
@@ -21,6 +22,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
     super(props, context);
     this.state = {
       open: false,
+      isSettingsOpen: false,
     };
   }
 
@@ -32,29 +34,39 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
     this.setState({ open: false });
   }
 
+  public toggleSettings = () => {
+    this.setState({ isSettingsOpen: !this.state.isSettingsOpen });
+  }
+
   public render(): React.ReactElement<Dashboard> {
     const { classes } = this.props;
+    const { open, isSettingsOpen } = this.state;
 
     return (
       <div className={classes.root}>
-        <Header isSidebarOpen={this.state.open} handleDrawerOpen={this.handleDrawerOpen} />
-        <Sidebar isSidebarOpen={this.state.open} handleDrawerClose={this.handleDrawerClose} />
-        <main className={classes.content}>
-          <div className={classes.toolbar}>
-            <div style={{ width: '100%' }}>
-              <Switch>
-                <Route exact path='/dashboard/home' component={() => <AsyncComponent moduleProvider={home} />} />
-                <Route exact path='/dashboard/widgets' component={() => <AsyncComponent moduleProvider={widgets} />} />
-                <Route exact path='/dashboard/charts' component={() => <AsyncComponent moduleProvider={charts} />} />
-                <Route exact path='/dashboard/buttons' component={() => <AsyncComponent moduleProvider={buttons} />} />
-                <Route exact path='/dashboard/icons' component={() => <AsyncComponent moduleProvider={icons} />} />
-                <Route exact path='/dashboard/form-elements/forms' component={() => <AsyncComponent moduleProvider={forms} />} />
-                <Route exact path='/dashboard/form-elements/text-fields' component={() => <AsyncComponent moduleProvider={textFields} />} />
-                <Redirect path='/dashboard' to='/dashboard/home' />
-              </Switch>
+        <div className={classNames(classes.dashboard, isSettingsOpen && classes.dashboardAside)}>
+          <Header isSidebarOpen={open} handleDrawerOpen={this.handleDrawerOpen} toggleSettings={this.toggleSettings} />
+          <Sidebar isSidebarOpen={open} handleDrawerClose={this.handleDrawerClose} />
+          <main className={classes.content}>
+            <div className={classes.toolbar}>
+              <div style={{ width: '100%' }}>
+                <Switch>
+                  <Route exact path='/dashboard/home' component={() => <AsyncComponent moduleProvider={home} />} />
+                  <Route exact path='/dashboard/widgets' component={() => <AsyncComponent moduleProvider={widgets} />} />
+                  <Route exact path='/dashboard/charts' component={() => <AsyncComponent moduleProvider={charts} />} />
+                  <Route exact path='/dashboard/buttons' component={() => <AsyncComponent moduleProvider={buttons} />} />
+                  <Route exact path='/dashboard/icons' component={() => <AsyncComponent moduleProvider={icons} />} />
+                  <Route exact path='/dashboard/form-elements/forms' component={() => <AsyncComponent moduleProvider={forms} />} />
+                  <Route exact path='/dashboard/form-elements/text-fi' component={() => <AsyncComponent moduleProvider={textFields} />} />
+                  <Redirect path='/dashboard' to='/dashboard/home' />
+                </Switch>
+              </div>
             </div>
-          </div>
-        </main>
+          </main>
+        </div>
+        <div className={classNames(classes.settings, isSettingsOpen && classes.settingsOpen)}>
+          Settings
+        </div>
       </div>
     );
   }

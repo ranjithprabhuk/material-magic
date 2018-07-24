@@ -4,6 +4,7 @@ interface IHeaderOwnProps {
     classes: any;
     isSidebarOpen: boolean;
     handleDrawerOpen: Function;
+    toggleSettings: Function;
 }
 interface IHeaderStateProps {
     theme?: Theme;

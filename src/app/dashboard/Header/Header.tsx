@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton, MenuItem, Menu } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Settings from '@material-ui/icons/SettingsApplications';
 import { IHeaderProps } from './IHeader';
 import { headerStyles } from './header.styles';
 import { labels } from '../../../utils/app.constants';
@@ -26,12 +27,16 @@ class Header extends React.Component<IHeaderProps, any> {
     this.setState({ anchorEl: event.currentTarget });
   }
 
+  public handleSidebar = (): any => {
+    console.log('sidebar clicked');
+  }
+
   public handleClose = (): any => {
     this.setState({ anchorEl: null });
   }
 
   public render(): React.ReactElement<Header> {
-    const { classes, isSidebarOpen } = this.props;
+    const { classes, isSidebarOpen, toggleSettings } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
@@ -51,12 +56,18 @@ class Header extends React.Component<IHeaderProps, any> {
           </Typography>
           <div className={classes.containerRight}>
             <IconButton
-
               aria-haspopup='true'
               onClick={this.handleMenu}
               color='inherit'
             >
               <AccountCircle />
+            </IconButton>
+            <IconButton
+              aria-haspopup='true'
+              onClick={() => toggleSettings()}
+              color='inherit'
+            >
+              <Settings />
             </IconButton>
             <Menu
               id='menu-appbar'

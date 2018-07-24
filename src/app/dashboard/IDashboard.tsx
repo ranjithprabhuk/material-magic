@@ -11,4 +11,5 @@ export type IDashboardProps = IDashboardOwnProps & IDashboardStateProps;
 
 export interface IDashboardState {
     open: boolean;
+    isSettingsOpen: boolean;
 }
