@@ -1,7 +1,7 @@
 import { Theme } from '@material-ui/core';
 import { flexDirection } from '../../theme';
 
-const settingsWidth: number = 250;
+const settingsWidth: number = 270;
 
 export const dashboardStyles = (theme: Theme): any => ({
   root:{

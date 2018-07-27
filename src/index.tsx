@@ -12,7 +12,7 @@ import { theme } from './theme';
 declare const require: (name: String) => any;
 
 const history = createHashHistory();
-const store: Store<any> =
+export const store: Store<any> =
     process.env.NODE_ENV !== 'production'
         ? (require('./store/store.dev') as any).configureStore(history)
         : (require('./store/store.prod') as any).configureStore(history);
