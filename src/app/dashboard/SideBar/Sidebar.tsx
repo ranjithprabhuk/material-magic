@@ -3,6 +3,7 @@ import * as classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { sideBarStyles } from './sideBar.styles';
 import { ISideBarProps, ISideBarState } from './ISideBar';
+import UserProfile from '../../user-profile';
 
 class SideBar extends React.Component<ISideBarProps, ISideBarState> {
   public render(): React.ReactElement<SideBar> {
@@ -10,7 +11,7 @@ class SideBar extends React.Component<ISideBarProps, ISideBarState> {
 
     return (
       <div className={classNames(classes.sideBar, isSideBarOpen && classes.sideBarOpen)}>
-          Settings
+          <UserProfile />
       </div>
     );
   }
