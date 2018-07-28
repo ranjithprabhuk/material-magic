@@ -1,17 +1,17 @@
 import { Theme } from '@material-ui/core';
 import { ThemeConfig, defineColours, flexDirection } from '../../../theme';
 
-export const sideBarStyles = (theme: Theme): any => ({
-  drawerPaper: {
+export const menuBarStyles = (theme: Theme): any => ({
+  menuBar: {
     position: 'relative',
     whiteSpace: 'nowrap',
-    width: ThemeConfig.drawerWidth,
+    width: ThemeConfig.menuBarWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  drawerPaperClose: {
+  menuBarClose: {
     overflowX: 'hidden',
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,

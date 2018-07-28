@@ -8,5 +8,6 @@ export const ThemeConfig: IThemeConfig = {
   warningColor: orange,
   dangerColor: red,
   direction: 'ltr',
-  drawerWidth: 240,
+  menuBarWidth: 240,
+  sideBarWidth: 270,
 };

@@ -8,16 +8,16 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { NavLink } from 'react-router-dom';
-import { ISidebarProps, IMenuItems, ISidebarState } from './ISideBar';
-import { sideBarStyles } from './sideBar.styles';
+import { IMenuBarProps, IMenuItems, IMenuBarState } from './IMenuBar';
+import { menuBarStyles } from './menuBar.styles';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import { menuItems } from './menuItems';
 import { labels } from '../../../utils/app.constants';
 
-class SideBar extends React.Component<ISidebarProps, ISidebarState> {
-  constructor(props: ISidebarProps) {
+class MenuBar extends React.Component<IMenuBarProps, IMenuBarState> {
+  constructor(props: IMenuBarProps) {
     super(props);
     this.state = {
       navigationMenuItems: menuItems,
@@ -49,7 +49,7 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   }
 
   public renderMenuItem(menu: IMenuItems, index: number): React.ReactElement<any> {
-    const { classes, isSidebarOpen } = this.props;
+    const { classes, isMenuBarOpen } = this.props;
     const menuItem = (
       <Paper>
         <ListItem
@@ -58,8 +58,8 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
           onClick={() => this.handleMenuClick(menu, index)}
         >
           <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
-          <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} primary={menu.title} />
-          {menu.children && isSidebarOpen && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
+          <ListItemText className={classNames(classes.title, !isMenuBarOpen && classes.displayNone )} primary={menu.title} />
+          {menu.children && isMenuBarOpen && (menu.isOpen ? <ExpandLess /> : <ExpandMore />)}
         </ListItem>
       </Paper>
     );
@@ -85,36 +85,36 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   }
 
   public renderNestedMenuItems(nestedMenuItems: IMenuItems[]): any {
-    const { classes, isSidebarOpen } = this.props;
+    const { classes, isMenuBarOpen } = this.props;
 
     return nestedMenuItems.map(menu => (
       <NavLink to={menu.path} activeClassName={classes.navigation} key={`nested_menu_${menu.id}`}>
         <Paper>
-          <ListItem button className={classNames(classes.nestedMenuItem, isSidebarOpen && classes.nestedMenuItemAlignment)}>
+          <ListItem button className={classNames(classes.nestedMenuItem, isMenuBarOpen && classes.nestedMenuItemAlignment)}>
             <ListItemIcon className={classes.icon}>{menu.icon}</ListItemIcon>
-            <ListItemText className={classNames(classes.title, !isSidebarOpen && classes.displayNone )} inset primary={menu.title} />
+            <ListItemText className={classNames(classes.title, !isMenuBarOpen && classes.displayNone )} inset primary={menu.title} />
           </ListItem>
         </Paper>
       </NavLink>
     ));
   }
 
-  public render(): React.ReactElement<SideBar> {
-    const { classes, theme, isSidebarOpen, handleDrawerClose } = this.props;
+  public render(): React.ReactElement<MenuBar> {
+    const { classes, theme, isMenuBarOpen, toggleMenuBar } = this.props;
 
     return (
       <Drawer
         variant='permanent'
         classes={{
-          paper: classNames(classes.drawerPaper, !isSidebarOpen && classes.drawerPaperClose),
+          paper: classNames(classes.menuBar, !isMenuBarOpen && classes.menuBarClose),
         }}
-        open={isSidebarOpen}
+        open={isMenuBarOpen}
       >
         <div className={classes.toolbar}>
           <Typography variant='title' color='primary' noWrap>
             {labels.appTitle}
           </Typography>
-          <IconButton onClick={() => handleDrawerClose()}>
+          <IconButton onClick={() => toggleMenuBar()}>
             {theme && theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
@@ -126,4 +126,4 @@ class SideBar extends React.Component<ISidebarProps, ISidebarState> {
   }
 }
 
-export default withStyles(sideBarStyles, { withTheme: true })(SideBar);
+export default withStyles(menuBarStyles, { withTheme: true })(MenuBar);

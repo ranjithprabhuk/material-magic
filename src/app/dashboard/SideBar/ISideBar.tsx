@@ -1,25 +1,17 @@
 import { Theme } from '@material-ui/core';
 
-interface ISidebarOwnProps {
+interface ISideBarOwnProps {
     classes: any;
-    isSidebarOpen: boolean;
-    handleDrawerClose: Function;
+    isSideBarOpen: boolean;
+    toggleSideBar: Function;
 }
-interface ISidebarStateProps {
+
+interface ISideBarStateProps {
     theme?: Theme;
 }
 
-export type ISidebarProps = ISidebarOwnProps & ISidebarStateProps;
+export type ISideBarProps = ISideBarOwnProps & ISideBarStateProps;
 
-export interface ISidebarState {
-    navigationMenuItems: IMenuItems[];
-}
+export interface ISideBarState {
 
-export interface IMenuItems {
-    id: number;
-    title: string;
-    path: string;
-    icon: any;
-    isOpen?: boolean;
-    children?: Array<IMenuItems>;
 }

@@ -1,7 +1,5 @@
 import { Theme } from '@material-ui/core';
-import { flexDirection } from '../../theme';
-
-const settingsWidth: number = 270;
+import { flexDirection, ThemeConfig } from '../../theme';
 
 export const dashboardStyles = (theme: Theme): any => ({
   root:{
@@ -19,11 +17,11 @@ export const dashboardStyles = (theme: Theme): any => ({
     display: 'flex',
     flexDirection,
     transition: theme.transitions.create('margin', {
-      duration: theme.transitions.duration.leavingScreen,
+      duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  dashboardAside: {
-    marginLeft: -settingsWidth,
+  sideBarOpen: {
+    marginLeft: -ThemeConfig.sideBarWidth,
   },
   toolbar: {
     display: 'flex',
@@ -37,16 +35,5 @@ export const dashboardStyles = (theme: Theme): any => ({
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit,
     marginTop: '72px',
-  },
-  settings: {
-    display: 'flex',
-    width: settingsWidth,
-    marginRight: -settingsWidth,
-    transition: theme.transitions.create('margin', {
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  settingsOpen: {
-    marginRight: 0,
   },
 });

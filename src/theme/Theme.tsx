@@ -1,31 +1,31 @@
 import { createMuiTheme, Theme, Color } from '@material-ui/core';
 import { ThemeConfig } from './ThemeConfig';
-import {store} from '../index';
-import { orange, red, green, brown } from '@material-ui/core/colors';
+// import {store} from '..';
+// import { orange, red, green, brown } from '@material-ui/core/colors';
 
-let state: number = 0;
-const getStoreInfo = () => {
-    store.subscribe(() => {
-      state++;
-      if (state % 2 === 0) {
-        theme.palette.primary.main = orange[500];
-        theme.palette.secondary.main = red[500];
-        ThemeConfig.primaryColor = orange;
-        ThemeConfig.secondaryColor = red;
-        ThemeConfig.direction = 'ltr';
-        theme.direction = 'ltr';
-        document.body.setAttribute('dir', 'ltr');
-      } else {
-        theme.palette.primary.main = green[500];
-        theme.palette.secondary.main = brown[500];
-        ThemeConfig.primaryColor = green;
-        ThemeConfig.secondaryColor = brown;
-        ThemeConfig.direction = 'rtl';
-        theme.direction = 'rtl';
-        document.body.setAttribute('dir', 'rtl');
-      }
-    });
-};
+// let state: number = 0;
+// const getStoreInfo = () => {
+//     store.subscribe(() => {
+//       state++;
+//       if (state % 2 === 0) {
+//         theme.palette.primary.main = orange[500];
+//         theme.palette.secondary.main = red[500];
+//         ThemeConfig.primaryColor = orange;
+//         ThemeConfig.secondaryColor = red;
+//         ThemeConfig.direction = 'ltr';
+//         theme.direction = 'ltr';
+//         document.body.setAttribute('dir', 'ltr');
+//       } else {
+//         theme.palette.primary.main = green[500];
+//         theme.palette.secondary.main = brown[500];
+//         ThemeConfig.primaryColor = green;
+//         ThemeConfig.secondaryColor = brown;
+//         ThemeConfig.direction = 'rtl';
+//         theme.direction = 'rtl';
+//         document.body.setAttribute('dir', 'rtl');
+//       }
+//     });
+// };
 
 // setTimeout(() => getStoreInfo(), 2000);
 
