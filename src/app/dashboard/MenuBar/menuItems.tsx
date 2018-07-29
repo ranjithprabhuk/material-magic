@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IMenuItems } from './ISideBar';
+import { IMenuItems } from './IMenuBar';
 import Drafts from '@material-ui/icons/Drafts';
 import Dashboard from '@material-ui/icons/Dashboard';
 import TagFaces from '@material-ui/icons/TagFaces';

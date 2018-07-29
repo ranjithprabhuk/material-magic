@@ -7,5 +7,6 @@ export interface IThemeConfig {
   warningColor: Color;
   dangerColor: Color;
   direction: 'ltr' | 'rtl';
-  drawerWidth: number;
+  menuBarWidth: number;
+  sideBarWidth: number;
 }

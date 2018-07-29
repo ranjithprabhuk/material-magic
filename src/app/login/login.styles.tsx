@@ -25,11 +25,15 @@ export const loginStyles = (theme: Theme): any => ({
     padding: '30px 5px 20px',
   },
   headerIconGrid: {
-    border: '5px solid white',
+    border: `4px solid ${theme.palette.background.paper}`,
     borderRadius: '50%',
     padding: 0,
     background: defineColours(ThemeConfig.primaryColor),
     marginTop: -50,
+  },
+  headerIcon: {
+    fontSize: 100,
+    color: theme.palette.background.paper,
   },
   inputFields: {
     width: '100%',
