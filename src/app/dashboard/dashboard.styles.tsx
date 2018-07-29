@@ -16,6 +16,7 @@ export const dashboardStyles = (theme: Theme): any => ({
     position: 'relative',
     display: 'flex',
     flexDirection,
+    maxWidth: '100%',
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
