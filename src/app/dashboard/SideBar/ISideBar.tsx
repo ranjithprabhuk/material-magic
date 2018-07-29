@@ -4,6 +4,7 @@ interface ISideBarOwnProps {
     classes: any;
     isSideBarOpen: boolean;
     toggleSideBar: Function;
+    viewContent: string;
 }
 
 interface ISideBarStateProps {
@@ -14,4 +15,8 @@ export type ISideBarProps = ISideBarOwnProps & ISideBarStateProps;
 
 export interface ISideBarState {
 
+}
+
+export interface ISideBarReduxState {
+    viewContent: string;
 }

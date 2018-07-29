@@ -5,13 +5,21 @@ import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Settings from '@material-ui/icons/SettingsApplications';
-import { IHeaderProps } from './IHeader';
+import { IHeaderProps, IHeaderState } from './IHeader';
 import { headerStyles } from './header.styles';
 import { labels } from '../../../utils/app.constants';
 
-class Header extends React.Component<IHeaderProps, any> {
+class Header extends React.Component<IHeaderProps, IHeaderState> {
+  public toggleSideBar(content: string): any {
+    const { currentSideBarContentView, isSideBarOpen, updateSideBarViewContent, toggleSideBar } = this.props;
+    updateSideBarViewContent(content);
+    if (!isSideBarOpen || currentSideBarContentView === content) {
+      toggleSideBar();
+    }
+  }
+
   public render(): React.ReactElement<Header> {
-    const { classes, isMenuBarOpen, toggleSideBar, toggleMenuBar } = this.props;
+    const { classes, isMenuBarOpen, toggleMenuBar } = this.props;
 
     return (
       <AppBar position='absolute' className={classNames(classes.appBar, isMenuBarOpen && classes.appBarShift)}>
@@ -33,10 +41,10 @@ class Header extends React.Component<IHeaderProps, any> {
             {labels.appTitle}
           </Typography>
           <div className={classes.containerRight}>
-            <IconButton color='inherit'>
+            <IconButton onClick={() => this.toggleSideBar('user-profile')} color='inherit'>
               <AccountCircle />
             </IconButton>
-            <IconButton aria-haspopup='true' onClick={() => toggleSideBar()} color='inherit'>
+            <IconButton onClick={() => this.toggleSideBar('settings')} color='inherit'>
               <Settings />
             </IconButton>
           </div>

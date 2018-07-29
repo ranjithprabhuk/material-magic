@@ -41,7 +41,12 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
     return (
       <div className={classes.root}>
         <div className={classNames(classes.dashboard, isSideBarOpen && classes.sideBarOpen)}>
-          <Header isMenuBarOpen={isMenuBarOpen} toggleMenuBar={this.toggleMenuBar} toggleSideBar={this.toggleSideBar} />
+          <Header
+            isMenuBarOpen={isMenuBarOpen}
+            isSideBarOpen={isSideBarOpen}
+            toggleMenuBar={this.toggleMenuBar}
+            toggleSideBar={this.toggleSideBar}
+          />
           <MenuBar isMenuBarOpen={isMenuBarOpen} toggleMenuBar={this.toggleMenuBar} />
           <main className={classes.content}>
             <div className={classes.toolbar}>

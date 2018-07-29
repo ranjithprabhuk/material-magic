@@ -6,12 +6,18 @@ import { ISideBarProps, ISideBarState } from './ISideBar';
 import UserProfile from '../../user-profile';
 
 class SideBar extends React.Component<ISideBarProps, ISideBarState> {
+  public renderViewContent(): React.ReactNode {
+    switch(this.props.viewContent) {
+      case 'user-profile': return (<UserProfile />);
+      default: return null;
+    }
+  }
   public render(): React.ReactElement<SideBar> {
     const { classes, isSideBarOpen } = this.props;
 
     return (
       <div className={classNames(classes.sideBar, isSideBarOpen && classes.sideBarOpen)}>
-          <UserProfile />
+          {this.renderViewContent()}
       </div>
     );
   }
