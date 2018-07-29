@@ -11,7 +11,7 @@ interface IHeaderOwnProps {
 interface IHeaderStateProps {
     theme?: Theme;
     currentSideBarContentView: string;
-    updateSideBarViewContent: (content: string) => any;
+    updateSideBarViewContent: (content: string) => void;
 }
 
 export type IHeaderProps = IHeaderOwnProps & IHeaderStateProps;

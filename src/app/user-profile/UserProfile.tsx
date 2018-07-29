@@ -16,7 +16,7 @@ class UserProfile extends React.Component<IUserProfileProps, IUserProfileState> 
             <Grid item xs={4}>
               <CardMedia
                 className={classes.userImage}
-                image='https://material-ui.com/static/images/cards/live-from-space.jpg'
+                image='/src/assets/images/ranjithprabhu.jpg'
                 title='Ranjithprabhu'
               />
             </Grid>
