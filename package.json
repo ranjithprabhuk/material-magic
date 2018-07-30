@@ -1,6 +1,6 @@
 {
   "name": "material-magic",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Admin Dashboard Project using following stack: Typescript + Webpack + React + Redux + React-Router v4 + Material UI",
   "main": "server.js",
   "license": "MIT",
