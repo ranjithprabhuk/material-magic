@@ -41,10 +41,10 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
             {labels.appTitle}
           </Typography>
           <div className={classes.containerRight}>
-            <IconButton onClick={() => this.toggleSideBar('user-profile')} color='inherit'>
+            <IconButton onClick={() => this.toggleSideBar('User Profile')} color='inherit'>
               <AccountCircle />
             </IconButton>
-            <IconButton onClick={() => this.toggleSideBar('settings')} color='inherit'>
+            <IconButton onClick={() => this.toggleSideBar('Settings')} color='inherit'>
               <Settings />
             </IconButton>
           </div>
