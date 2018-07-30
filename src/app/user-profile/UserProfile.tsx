@@ -11,7 +11,7 @@ class UserProfile extends React.Component<IUserProfileProps, IUserProfileState> 
 
     return (
       <div className={classes.root}>
-        <Card className={classes.card}>
+        <Card square className={classes.card}>
           <Grid container>
             <Grid item xs={4}>
               <CardMedia
