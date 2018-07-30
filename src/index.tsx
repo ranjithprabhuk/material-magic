@@ -3,11 +3,9 @@ import * as ReactDOM from 'react-dom';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
 import { createHashHistory } from 'history';
-import { ConnectedRouter } from 'react-router-redux';
-import { App } from './app';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+
+import App from './app';
 import './assets/scss/styles.scss';
-import { theme } from './theme';
 
 declare const require: (name: String) => any;
 
@@ -19,11 +17,7 @@ export const store: Store<any> =
 
 ReactDOM.render(
     <Provider store={store}>
-        <MuiThemeProvider theme={theme}>
-            <ConnectedRouter store={store} history={history}>
-                <App />
-            </ConnectedRouter>
-        </MuiThemeProvider>
+        <App store={store} history={history} />
     </Provider>,
     document.getElementById('material-magic'),
 );
