@@ -1,2 +1,3 @@
-export { default as Component} from './Header';
-export { default } from './container';
+export { default } from './Container';
+export { default as HeaderComponent} from './Header';
+export * from './IHeader';

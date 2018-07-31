@@ -1,21 +1,21 @@
 import { connect } from 'react-redux';
 import { IAppState } from '../../../Model';
-import Header from './Header';
-import { updateViewContent } from '../SideBar';
+import MenuBar from './MenuBar';
+import { toggleMenuBar } from './actions';
 
 const mapStateToProps = (state: IAppState) => {
   return {
-    currentSideBarContentView: state.sideBar.viewContent,
+    isMenuBarOpen: state.menuBar.isMenuBarOpen,
   };
 };
 
 const mapDispatchToProps = (dispatch: Function) => {
   return {
-    updateSideBarViewContent: (content: string) => dispatch(updateViewContent(content)),
+    toggleMenuBar: () => dispatch(toggleMenuBar()),
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Header);
+)(MenuBar);

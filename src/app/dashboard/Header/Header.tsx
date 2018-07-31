@@ -11,9 +11,9 @@ import { labels } from '../../../utils/app.constants';
 
 class Header extends React.Component<IHeaderProps, IHeaderState> {
   public toggleSideBar(content: string): any {
-    const { currentSideBarContentView, isSideBarOpen, updateSideBarViewContent, toggleSideBar } = this.props;
+    const { sideBarCurrentViewContent, isSideBarOpen, updateSideBarViewContent, toggleSideBar } = this.props;
     updateSideBarViewContent(content);
-    if (!isSideBarOpen || currentSideBarContentView === content) {
+    if (!isSideBarOpen || sideBarCurrentViewContent === content) {
       toggleSideBar();
     }
   }
@@ -41,10 +41,10 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
             {labels.appTitle}
           </Typography>
           <div className={classes.containerRight}>
-            <IconButton onClick={() => this.toggleSideBar('user-profile')} color='inherit'>
+            <IconButton onClick={() => this.toggleSideBar('User Profile')} color='inherit'>
               <AccountCircle />
             </IconButton>
-            <IconButton onClick={() => this.toggleSideBar('settings')} color='inherit'>
+            <IconButton onClick={() => this.toggleSideBar('Settings')} color='inherit'>
               <Settings />
             </IconButton>
           </div>

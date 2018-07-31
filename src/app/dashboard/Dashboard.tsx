@@ -18,36 +18,14 @@ const forms = () => import('../forms');
 const textFields = () => import('../text-fields');
 
 class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
-  constructor(props: IDashboardProps, context: any) {
-    super(props, context);
-    this.state = {
-      isMenuBarOpen: false,
-      isSideBarOpen: false,
-    };
-  }
-
-  public toggleMenuBar = () => {
-    this.setState({ isMenuBarOpen: !this.state.isMenuBarOpen });
-  }
-
-  public toggleSideBar = () => {
-    this.setState({ isSideBarOpen: !this.state.isSideBarOpen });
-  }
-
   public render(): React.ReactElement<Dashboard> {
-    const { classes } = this.props;
-    const { isMenuBarOpen, isSideBarOpen } = this.state;
+    const { classes, isSideBarOpen } = this.props;
 
     return (
       <div className={classes.root}>
         <div className={classNames(classes.dashboard, isSideBarOpen && classes.sideBarOpen)}>
-          <Header
-            isMenuBarOpen={isMenuBarOpen}
-            isSideBarOpen={isSideBarOpen}
-            toggleMenuBar={this.toggleMenuBar}
-            toggleSideBar={this.toggleSideBar}
-          />
-          <MenuBar isMenuBarOpen={isMenuBarOpen} toggleMenuBar={this.toggleMenuBar} />
+          <Header />
+          <MenuBar />
           <main className={classes.content}>
             <div className={classes.toolbar}>
               <div style={{ width: '100%' }}>
@@ -65,7 +43,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
             </div>
           </main>
         </div>
-        <Sidebar isSideBarOpen={isSideBarOpen} toggleSideBar={this.toggleSideBar} />
+        <Sidebar />
       </div>
     );
   }

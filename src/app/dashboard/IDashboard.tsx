@@ -5,11 +5,12 @@ interface IDashboardOwnProps {
 }
 interface IDashboardStateProps {
     theme: Theme;
+    isSideBarOpen: boolean;
+    isMenuBarOpen: boolean;
 }
 
 export type IDashboardProps = IDashboardOwnProps & IDashboardStateProps;
 
 export interface IDashboardState {
-    isMenuBarOpen: boolean;
-    isSideBarOpen: boolean;
+
 }

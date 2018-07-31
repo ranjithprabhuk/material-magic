@@ -1,33 +1,36 @@
 import * as React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
-import { Card, CardMedia, Grid, Typography } from '@material-ui/core';
-import { userProfileStyles } from './settings.styles';
-import { IUserProfileProps, IUserProfileState } from './ISettings';
+import { Card, Divider, Grid, IconButton, Typography } from '@material-ui/core';
+import { blue, pink, orange, red } from '@material-ui/core/colors';
+import Favorite from '@material-ui/icons/Favorite';
+import { settingsStyles } from './settings.styles';
+import { ISettingsProps, ISettingsState } from './ISettings';
 
-class UserProfile extends React.Component<IUserProfileProps, IUserProfileState> {
-  public render(): React.ReactElement<UserProfile> {
-    const { classes } = this.props;
+class Settings extends React.Component<ISettingsProps, ISettingsState> {
+  public render(): React.ReactElement<Settings> {
+    const { classes, updatePrimaryColor } = this.props;
 
     return (
       <div className={classes.root}>
-        <Card className={classes.card}>
+        <Card square className={classes.card}>
           <Grid container>
-            <Grid item xs={4}>
-              <CardMedia
-                className={classes.userImage}
-                image='https://material-ui.com/static/images/cards/live-from-space.jpg'
-                title='Ranjithprabhu'
-              />
+            <Grid item>
+              <Typography variant='body1'>Theme</Typography>
             </Grid>
-            <Grid item xs={8} className={classes.userInfo}>
-              <Typography noWrap variant='title'>Ranjithprabhu</Typography>
-              <Typography noWrap variant='body1' color='textSecondary'>
-                Software Engineer
-              </Typography>
-              <Link to='/login'>
-                <div>Logout</div>
-              </Link>
+            <Divider />
+            <Grid item>
+              <IconButton onClick={() => updatePrimaryColor(orange)}>
+                <Favorite />
+              </IconButton>
+              <IconButton onClick={() => updatePrimaryColor(blue)}>
+                <Favorite />
+              </IconButton>
+              <IconButton onClick={() => updatePrimaryColor(pink)}>
+                <Favorite />
+              </IconButton>
+              <IconButton onClick={() => updatePrimaryColor(red)}>
+                <Favorite />
+              </IconButton>
             </Grid>
           </Grid>
         </Card>
@@ -36,4 +39,4 @@ class UserProfile extends React.Component<IUserProfileProps, IUserProfileState> 
   }
 }
 
-export default withStyles(userProfileStyles, {withTheme: true})(UserProfile);
+export default withStyles(settingsStyles, {withTheme: true})(Settings);

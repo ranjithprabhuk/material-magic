@@ -2,16 +2,16 @@ import { Theme } from '@material-ui/core';
 
 interface IHeaderOwnProps {
     classes: any;
-    isMenuBarOpen: boolean;
-    isSideBarOpen: boolean;
-    toggleMenuBar: () => void;
-    toggleSideBar: () => void;
 }
 
 interface IHeaderStateProps {
     theme?: Theme;
-    currentSideBarContentView: string;
+    isMenuBarOpen: boolean;
+    isSideBarOpen: boolean;
+    sideBarCurrentViewContent: string;
     updateSideBarViewContent: (content: string) => void;
+    toggleMenuBar: () => void;
+    toggleSideBar: () => void;
 }
 
 export type IHeaderProps = IHeaderOwnProps & IHeaderStateProps;

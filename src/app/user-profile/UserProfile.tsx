@@ -11,7 +11,7 @@ class UserProfile extends React.Component<IUserProfileProps, IUserProfileState> 
 
     return (
       <div className={classes.root}>
-        <Card className={classes.card}>
+        <Card square className={classes.card}>
           <Grid container>
             <Grid item xs={4}>
               <CardMedia
@@ -21,10 +21,12 @@ class UserProfile extends React.Component<IUserProfileProps, IUserProfileState> 
               />
             </Grid>
             <Grid item xs={8} className={classes.userInfo}>
-              <Typography noWrap variant='title'>Ranjithprabhu</Typography>
-              <Typography noWrap variant='body1' color='textSecondary'>
-                Software Engineer
-              </Typography>
+              <div>
+                <Typography noWrap variant='title'>Ranjithprabhu</Typography>
+                <Typography noWrap variant='body1' color='textSecondary'>
+                  Software Engineer
+                </Typography>
+              </div>
               <Link to='/login'>
                 <div>Logout</div>
               </Link>

@@ -2,11 +2,11 @@ import { Theme } from '@material-ui/core';
 
 interface IMenuBarOwnProps {
     classes: any;
-    isMenuBarOpen: boolean;
-    toggleMenuBar: Function;
 }
 interface IMenuBarStateProps {
     theme?: Theme;
+    isMenuBarOpen: boolean;
+    toggleMenuBar: () => void;
 }
 
 export type IMenuBarProps = IMenuBarOwnProps & IMenuBarStateProps;
@@ -22,4 +22,8 @@ export interface IMenuItems {
     icon: any;
     isOpen?: boolean;
     children?: Array<IMenuItems>;
+}
+
+export interface IMenuBarReduxState {
+    isMenuBarOpen: boolean;
 }

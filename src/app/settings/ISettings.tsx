@@ -1,14 +1,17 @@
-import { Theme } from '@material-ui/core';
+import { Color, Theme } from '@material-ui/core';
+import { IThemeConfig } from '../../theme/IThemeConfig';
 
-interface IUserProfileOwnProps {
+interface ISettingsOwnProps {
     classes: any;
 }
-interface IUserProfileStateProps {
+interface ISettingsStateProps {
     theme?: Theme;
+    currentThemeSettings: IThemeConfig;
+    updatePrimaryColor: (color: Color) => void;
 }
 
-export type IUserProfileProps = IUserProfileOwnProps & IUserProfileStateProps;
+export type ISettingsProps = ISettingsOwnProps & ISettingsStateProps;
 
-export interface IUserProfileState {
+export interface ISettingsState {
 
 }

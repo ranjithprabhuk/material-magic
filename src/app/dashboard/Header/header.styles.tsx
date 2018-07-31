@@ -1,7 +1,7 @@
 import { Theme } from '@material-ui/core';
 import { ThemeConfig, flexDirection } from '../../../theme';
 
-const {menuBarWidth} = ThemeConfig;
+const { menuBarWidth } = ThemeConfig;
 
 export const headerStyles = (theme: Theme): any => ({
   appBar: {
