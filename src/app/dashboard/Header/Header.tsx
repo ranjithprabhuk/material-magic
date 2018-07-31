@@ -11,9 +11,9 @@ import { labels } from '../../../utils/app.constants';
 
 class Header extends React.Component<IHeaderProps, IHeaderState> {
   public toggleSideBar(content: string): any {
-    const { currentSideBarContentView, isSideBarOpen, updateSideBarViewContent, toggleSideBar } = this.props;
+    const { sideBarCurrentViewContent, isSideBarOpen, updateSideBarViewContent, toggleSideBar } = this.props;
     updateSideBarViewContent(content);
-    if (!isSideBarOpen || currentSideBarContentView === content) {
+    if (!isSideBarOpen || sideBarCurrentViewContent === content) {
       toggleSideBar();
     }
   }

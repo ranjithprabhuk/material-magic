@@ -2,12 +2,12 @@ import { Theme } from '@material-ui/core';
 
 interface ISideBarOwnProps {
     classes: any;
-    viewContent: string;
 }
 
 interface ISideBarStateProps {
     theme?: Theme;
     isSideBarOpen: boolean;
+    viewContent: string;
     toggleSideBar: () => void;
 }
 

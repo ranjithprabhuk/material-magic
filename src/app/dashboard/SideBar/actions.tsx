@@ -1,6 +1,6 @@
 export const types = {
   UPDATE_VIEW_CONTENT: '[sidebar] UPDATE_SIDE_BAR_VIEW_CONTENT',
-  TOGGLE_SIDEBAR: '[sidebar] TOGGLE_SIDEBAR',
+  TOGGLE_SIDE_BAR: '[sidebar] TOGGLE_SIDE_BAR',
 };
 
 export const updateViewContent = (content: string) => {
@@ -12,6 +12,6 @@ export const updateViewContent = (content: string) => {
 
 export const toggleSideBar = () => {
   return {
-      type: types.TOGGLE_SIDEBAR,
+      type: types.TOGGLE_SIDE_BAR,
   };
 };
