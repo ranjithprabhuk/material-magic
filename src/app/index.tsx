@@ -5,7 +5,7 @@ import AsyncComponent from './AsyncComponent';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { theme } from '../theme';
 import { IAppState } from '../Model';
-import { updatePageContext } from '../theme/Theme';
+import { getTheme } from '../theme/Theme';
 import { ConnectedRouter } from 'react-router-redux';
 
 const NoMatch = () => <h1 style={{ color: 'red' }}>Page not found!</h1>;
@@ -15,27 +15,15 @@ const dashboard = () => import('./dashboard');
 
 class App extends React.Component<any, any> {
   public static getDerivedStateFromProps(nextProps: any, prevState: any): any {
-    console.log('sdadsad', nextProps, prevState);
-    if (typeof prevState.pageContext === 'undefined') {
+    if (typeof prevState.theme === 'undefined') {
       return {
         theme,
       };
     }
 
-    const { prevProps } = prevState;
-
-    if (
-      nextProps.uiTheme.paletteType !== prevProps.uiTheme.paletteType ||
-      nextProps.uiTheme.paletteColors !== prevProps.uiTheme.paletteColors ||
-      nextProps.uiTheme.direction !== prevProps.uiTheme.direction
-    ) {
-      return {
-        prevProps: nextProps,
-        theme: updatePageContext(nextProps.uiTheme),
-      };
-    }
-
-    return null;
+    return {
+      theme: getTheme(nextProps.themeConfig),
+    };
   }
   constructor(props: any, context: any) {
     super(props);
@@ -67,7 +55,7 @@ class App extends React.Component<any, any> {
 
 
 const materialMagic: any = connect((state: IAppState) => ({
-  uiTheme: state.theme,
+  themeConfig: state.theme,
 }))(App);
 
 export default materialMagic;

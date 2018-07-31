@@ -65,7 +65,7 @@ class Dashboard extends React.Component<IDashboardProps, IDashboardState> {
             </div>
           </main>
         </div>
-        <Sidebar isSideBarOpen={isSideBarOpen} toggleSideBar={this.toggleSideBar} />
+        <Sidebar />
       </div>
     );
   }
