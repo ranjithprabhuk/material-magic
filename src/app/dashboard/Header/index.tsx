@@ -1,2 +1,2 @@
 export { default as HeaderComponent} from './Header';
-export { default } from './container';
+export { default } from './Container';
