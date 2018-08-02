@@ -28,4 +28,7 @@ export const statsWidgetStyles = (theme: Theme): any => ({
   statTitle: {
     color: 'rgba(0, 0, 0, 0.6)',
   },
+  clickable: {
+    cursor: 'pointer',
+  },
 });
