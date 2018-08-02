@@ -6,7 +6,7 @@ interface ISettingsOwnProps {
 }
 interface ISettingsStateProps {
     theme?: Theme;
-    currentThemeSettings: IThemeConfig;
+    currentTheme: IThemeConfig;
     updatePrimaryColor: (color: Color) => void;
 }
 

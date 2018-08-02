@@ -7,4 +7,10 @@ export const settingsStyles = (theme: Theme): any => ({
   card: {
     display: 'flex',
   },
+  iconGrid: {
+    justifyContent: 'center',
+  },
+  activeTheme: {
+    backgroundColor: theme.palette.grey[400],
+  },
 });

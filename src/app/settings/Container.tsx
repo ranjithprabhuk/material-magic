@@ -6,7 +6,7 @@ import { updatePrimaryColor } from './actions';
 
 const mapStateToProps = (state: IAppState) => {
   return {
-    currentThemeSettings: state.theme,
+    currentTheme: state.theme,
   };
 };
 
