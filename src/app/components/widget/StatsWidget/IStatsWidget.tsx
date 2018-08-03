@@ -1,4 +1,5 @@
 import { PropTypes, Theme } from '@material-ui/core';
+import { Style } from '@material-ui/core/styles/createTypography';
 
 interface IStatsWidgetOwnProps {
   classes: any;
@@ -10,6 +11,12 @@ interface IStatsWidgetOwnProps {
   textColor?: string;
   backgroundColor?: string;
   direction?: 'rtl' | 'ltr';
+  padding?: number | string;
+  valueVariant?: Style | 'caption' | 'button';
+  titleVariant?: Style | 'caption' | 'button';
+  onTitleClick?: () => void;
+  onWidgetClick?: () => void;
+  onValueClick?: () => void;
 }
 
 interface IStatsWidgetStateProps {
