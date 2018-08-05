@@ -15,19 +15,22 @@ class Settings extends React.Component<ISettingsProps, ISettingsState> {
     return (
       <div className={classes.panel}>
         <CollapsiblePanel noCollapse header={title}>
-            <Grid container spacing={0}>
-              <Grid item xs={12} className={classes.iconGrid} spacing={0}>
-                {(Colors || []).map((color) => (
-                  <IconButton
-                    className={classNames(this.getColorSettings(currentTheme, key) === color.value[500] && classes.activeTheme)}
-                    onClick={() => this.updateColorSettings(key, color.value)}
-                    title={color.name}
-                  >
-                    <Favorite style={{ color: color.value[500] }} />
-                  </IconButton>
-                ))}
-              </Grid>
+          <Grid container spacing={0}>
+            <Grid item xs={12} className={classes.iconGrid}>
+              {(Colors || []).map(color => (
+                <IconButton
+                  key={`${color.name}_color`}
+                  className={classNames(
+                    this.getColorSettings(currentTheme, key) === color.value[500] && classes.activeTheme,
+                  )}
+                  onClick={() => this.updateColorSettings(key, color.value)}
+                  title={color.name}
+                >
+                  <Favorite style={{ color: color.value[500] }} />
+                </IconButton>
+              ))}
             </Grid>
+          </Grid>
         </CollapsiblePanel>
       </div>
     );
@@ -38,14 +41,15 @@ class Settings extends React.Component<ISettingsProps, ISettingsState> {
   }
 
   public updateColorSettings(key: string, color: Color): void {
-    switch(key) {
+    switch (key) {
       case 'primaryColor':
         this.props.updatePrimaryColor(color);
         break;
       case 'secondaryColor':
         this.props.updateSecondaryColor(color);
         break;
-      default: break;
+      default:
+        break;
     }
   }
 
