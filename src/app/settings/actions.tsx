@@ -12,7 +12,7 @@ export const updatePrimaryColor = (color: Color) => {
   };
 };
 
-export const updateSecondaryCOlor = (color: Color) => {
+export const updateSecondaryColor = (color: Color) => {
   return {
       type: types.UPDATE_SECONDARY_THEME_COLOR,
       color,

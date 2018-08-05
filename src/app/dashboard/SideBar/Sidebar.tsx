@@ -24,7 +24,7 @@ class SideBar extends React.Component<ISideBarProps, ISideBarState> {
       <div className={classNames(classes.sideBar, isSideBarOpen && classes.sideBarOpen)}>
         <div className={classes.sideBarHeader}>
           <Typography variant='title' color='textSecondary'>{viewContent}</Typography>
-          <IconButton>
+          <IconButton className={classes.closeButton}>
             <Close onClick={() => toggleSideBar()} />
           </IconButton>
         </div>

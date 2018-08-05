@@ -14,12 +14,7 @@ export const getTheme = (themeConfig: IThemeConfig): Theme => {
     palette: {
       primary: themeConfig.primaryColor,
       secondary: themeConfig.secondaryColor,
-      error: {
-        light: '#ff7961',
-        main: '#f44336',
-        dark: '#ba000d',
-        contrastText: '#000',
-      },
+      error: themeConfig.dangerColor,
     },
     direction: themeConfig.direction,
   });

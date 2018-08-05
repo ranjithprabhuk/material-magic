@@ -4,11 +4,12 @@ export const settingsStyles = (theme: Theme): any => ({
   root: {
     width: '100%',
   },
-  card: {
+  panel: {
     display: 'flex',
+    marginBottom: 10,
   },
   iconGrid: {
-    justifyContent: 'center',
+    textAlign: 'center',
   },
   activeTheme: {
     backgroundColor: theme.palette.grey[400],
