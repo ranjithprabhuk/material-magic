@@ -9,4 +9,7 @@ export const homeStyles = (theme: Theme): any => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  panelHeader: {
+    backgroundColor: theme.palette.grey[200],
+  },
 });
