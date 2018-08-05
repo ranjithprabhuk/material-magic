@@ -24,6 +24,9 @@ const styles = (theme: Theme): any => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  noCollapse: {
+    margin: theme.spacing.unit,
+  },
 });
 
 class CollapsiblePanel extends React.Component<any, any> {
@@ -50,7 +53,7 @@ class CollapsiblePanel extends React.Component<any, any> {
     return (
       <div>
         <Card>
-          <CardActions className={classnames(classes.actions, className)} disableActionSpacing>
+          <CardActions className={classnames(classes.actions, className, noCollapse && classes.noCollapse)} disableActionSpacing>
             {customheader ? customheader : <Typography variant='body2'>{header}</Typography>}
             {!noCollapse && <IconButton
               className={classnames(classes.expand, {
