@@ -10,3 +10,8 @@ export interface IThemeConfig {
   menuBarWidth: number;
   sideBarWidth: number;
 }
+
+export interface IColors {
+  name: string;
+  value: Color;
+}

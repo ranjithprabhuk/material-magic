@@ -4,7 +4,14 @@ export const settingsStyles = (theme: Theme): any => ({
   root: {
     width: '100%',
   },
-  card: {
+  panel: {
     display: 'flex',
+    marginBottom: 10,
+  },
+  iconGrid: {
+    textAlign: 'center',
+  },
+  activeTheme: {
+    backgroundColor: theme.palette.grey[400],
   },
 });

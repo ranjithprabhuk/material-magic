@@ -9,6 +9,10 @@ const themeSettings = (state = defaultState, action: any) => {
       ThemeConfig.primaryColor = action.color;
       return { ...state, primaryColor: action.color };
     }
+    case types.UPDATE_SECONDARY_THEME_COLOR: {
+      ThemeConfig.secondaryColor = action.color;
+      return { ...state, secondaryColor: action.color };
+    }
     default: {
       return state;
     }

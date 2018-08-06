@@ -22,4 +22,7 @@ export const sideBarStyles = (theme: Theme): any => ({
     margin: theme.spacing.unit * 1.25,
     justifyContent: 'space-between',
   },
+  closeButton: {
+    marginTop: -10,
+  },
 });

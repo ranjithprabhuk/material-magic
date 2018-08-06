@@ -24,6 +24,9 @@ const styles = (theme: Theme): any => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  noCollapse: {
+    margin: theme.spacing.unit,
+  },
 });
 
 class CollapsiblePanel extends React.Component<any, any> {
@@ -39,15 +42,20 @@ class CollapsiblePanel extends React.Component<any, any> {
     this.setState({ expanded: !this.state.expanded });
   }
 
+  public renderCollapse = () =>
+    <Collapse in={this.state.expanded} timeout='auto' unmountOnExit>
+      {this.props.children}
+    </Collapse>
+
   public render(): any {
-    const { classes, header, customheader, className } = this.props;
+    const { classes, header, customheader, className, noCollapse } = this.props;
 
     return (
       <div>
         <Card>
-          <CardActions className={classnames(classes.actions, className)} disableActionSpacing>
+          <CardActions className={classnames(classes.actions, className, noCollapse && classes.noCollapse)} disableActionSpacing>
             {customheader ? customheader : <Typography variant='body2'>{header}</Typography>}
-            <IconButton
+            {!noCollapse && <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
               })}
@@ -56,11 +64,9 @@ class CollapsiblePanel extends React.Component<any, any> {
               aria-label={this.state.expand ? 'Hide' : 'Show More'}
             >
               <ExpandMoreIcon />
-            </IconButton>
+            </IconButton>}
           </CardActions>
-          <Collapse in={this.state.expanded} timeout='auto' unmountOnExit>
-            {this.props.children}
-          </Collapse>
+          {!noCollapse ? this.renderCollapse() : this.props.children }
         </Card>
       </div>
     );
