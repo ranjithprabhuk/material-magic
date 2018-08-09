@@ -92,12 +92,12 @@
     "webpack-hot-middleware": "^2.18.0"
   },
   "dependencies": {
-    "rmat-kit": "^0.2.0",
     "lodash": "^4.17.4",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "recharts": "^1.1.0",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "rmat-kit": "^0.3.0"
   }
 }
