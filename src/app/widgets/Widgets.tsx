@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Divider, Grid, Typography } from '@material-ui/core';
 import { widgetStyles } from './widgets.styles';
 import { IWidgetsProps, IWidgetsState } from './IWidgets';
-import { StatsWidget } from '../components';
+import StatsWidget  from 'rmat-kit/components/StatsWidget';
 import StarIcon from '@material-ui/icons/Star';
 import InboxIcon from '@material-ui/icons/Inbox';
 import { defineColours, ThemeConfig } from '../../theme';
